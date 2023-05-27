@@ -238,7 +238,7 @@ Haskell plays a key role in the development of Cardano, powering various aspects
 
 Cardano benefits from the wide range of Haskell libraries and tools that are open-source. These libraries provide support for cryptography, networking, parsing, and other essential functionalities. The use of Haskell in Cardano reflects the language's suitability for building secure, high-assurance-availability systems.
 
-** Tools written in Haskell
+** Tools and frameworks written in Haskell
 
 *** Hackage
 
