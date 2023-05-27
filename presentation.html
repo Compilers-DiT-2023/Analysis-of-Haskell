@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Haskell</title>
+<meta name="author" content="K. Chousos, K. Kordolaimis, P. Seitanidis, A. Tsitsoli"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="/home/kchou/.config/emacs/HTML/worg.css"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>Haskell</h1> <h4>K31 Compilers, Spring 2023</h4> <br> <p>K. Chousos, K. Kordolaimis, P. Seitanidis, A. Tsitsoli</p>
+</section>
+
+<section>
+<section id="slide-org15794b8" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h2 id="org15794b8">Introduction</h2>
+<div class="outline-text-2" id="text-org15794b8">
+</div>
+</section>
+<section id="slide-orgfff3faf" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h3 id="orgfff3faf">Raison d&rsquo;être</h3>
+<ul>
+<li>Haskell was created by a committee that was formed in the FPCA conference of 1987.</li>
+<li>Its purpose was to unite the functional programming world by being a language that is:
+<ul>
+<li>Accessible (open-source)</li>
+<li>Stable</li>
+<li>Disruptive</li>
+<li>Useful for teaching, research, as well for real-world applications</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-org55468fa" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h3 id="org55468fa">Where is it used</h3>
+<p>
+Haskell is used in a plethora of fields and industries to solve a variety of problems. For example:
+</p>
+<ul>
+<li>The Cardano blockchain platform, its protocol and its smart contract infrastructure</li>
+<li>In Facebook for filtering spam.</li>
+<li>Hasura, an open-source real-time GraphQL engine is written in Haskell.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org6166a78" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h2 id="org6166a78">Features</h2>
+<div class="outline-text-2" id="text-org6166a78">
+</div>
+</section>
+<section id="slide-org88d01ac" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h3 id="org88d01ac">Laziness</h3>
+<ul>
+<li>A very distinctive feature of Haskell is <i>Lazy evaluation</i>.</li>
+<li>Its usefulness lies in the fact that it delays the computation of an expression until the value of the computation is needed.</li>
+<li>The efficiency of this operation provides the reduction of unnecessary calculations alongside the saving of time.</li>
+<li>The downside of this process is that the usage of memory can be unpredictable.</li>
+
+</ul>
+
+</section>
+<section id="slide-org5453b8c" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h3 id="org5453b8c">Lambdas</h3>
+<p>
+Lambda expressions are a way of defining an anonymous function, helping developers define functions &ldquo;on the fly&rdquo; and passing them directly as arguments to other functions.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name">Syntax of lambda expressions:</label>
+<pre  class="src src-haskell"   ><code trim><span style="color: #005077;">\</span>arg1 arg2 <span style="color: #005077;">...</span> argN <span style="color: #005077;">-&gt;</span> body
+<span style="color: #505050;">-- </span><span style="color: #505050;">Example: Lambda that adds two numbers</span>
+<span style="color: #005077;">\</span>x y <span style="color: #005077;">-&gt;</span> x <span style="color: #005077;">+</span> y
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org66006d8" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h3 id="org66006d8">Monads</h3>
+<ul>
+<li>Monads allow you to express complex computations in a modular way, granting the ability to represent computations as <b>sequences of steps</b>.</li>
+
+<li>It is a type class that defines two operations: <code>return</code> and <code>&gt;&gt;=</code>.
+<ul>
+<li>The return operation takes a value and puts it in a monad, lifting a <b>pure value</b> into a <b>monadic context</b>.</li>
+<li>The <code>&gt;&gt;=</code> operation is employed to connect monadic computations together.</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-org66006d8-split" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+
+<h3>Monads</h3>
+
+<div class="org-src-container">
+<label class="org-src-name">How I/O operations are preformed in Haskell:</label>
+<pre  class="src src-haskell"   ><code trim><span style="color: #752f50;">main</span> <span style="color: #005077;">::</span> <span style="color: #354f6f;">IO</span> <span style="color: #000000;">()</span>
+<span style="color: #752f50;">main</span> <span style="color: #005077;">=</span> <span style="color: #55348e;">do</span>
+    putStrLn <span style="color: #0f3d8c;">"What is your name ?"</span>
+    name <span style="color: #005077;">&lt;-</span> getLine
+    putStrLn <span style="color: #000000;">(</span><span style="color: #0f3d8c;">"Hello, "</span> <span style="color: #005077;">++</span> name <span style="color: #005077;">++</span> <span style="color: #0f3d8c;">"!"</span><span style="color: #000000;">)</span>
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org65e69e1" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h3 id="org65e69e1">Memory management</h3>
+<ul>
+<li>Haskell&rsquo;s <code>ghc</code> implementation uses a parallel generational-copying garbage collector. That means that all memory allocations and releases happen in the background automatically.</li>
+<li>In every step, Haskell&rsquo;s GC searches for any <i>live data</i>: Data pointed to by the <i>roots</i> (the stack and any global variables).</li>
+<li>The live data found are copied to a new heap; Any <i>dead</i> data is discarded.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgf788dba" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h3 id="orgf788dba">Prelude</h3>
+<p>
+Haskell&rsquo;s API is represented by its <i>Prelude</i>, a structure which holds a set of standard definitions and is included automatically in all of Haskell&rsquo;s modules. The definitions include:
+</p>
+
+<ul>
+<li>Functions: <code>map</code>, <code>filter</code>, <code>read</code></li>
+<li>Data Types: <code>Int</code>, <code>Bool</code>, <code>Char</code></li>
+<li>Type Classes: <code>Eq</code>, <code>Read</code>, <code>Num</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org138e39b" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h2 id="org138e39b">Example code</h2>
+<div class="outline-text-2" id="text-org138e39b">
+</div>
+</section>
+<section id="slide-orgf79eb1c" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h3 id="orgf79eb1c">Factorial</h3>
+<ul>
+<li>Here&rsquo;s a small program that computes the factorial of a given number recursively.</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-haskell"   ><code trim><span style="color: #752f50;">factorial</span> <span style="color: #005077;">::</span> <span style="color: #354f6f;">Int</span> <span style="color: #005077;">-&gt;</span> <span style="color: #354f6f;">Int</span>
+<span style="color: #752f50;">factorial</span> 0 <span style="color: #005077;">=</span> 1
+<span style="color: #752f50;">factorial</span> n <span style="color: #005077;">=</span> n <span style="color: #005077;">*</span> factorial <span style="color: #000000;">(</span>n <span style="color: #005077;">-</span> 1<span style="color: #000000;">)</span>
+</code></pre>
+</div>
+
+<ul>
+<li>Here&rsquo;s a program that does the same thing by leveraging <i>lambdas</i>.</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-haskell"   ><code trim><span style="color: #752f50;">factorial</span> n <span style="color: #005077;">=</span> product <span style="color: #000000;">[</span>1<span style="color: #005077;">..</span>n<span style="color: #000000;">]</span> 
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orge6717bd" data-background="https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png" data-background-size="100px" data-background-position="bottom left">
+<h2 id="orge6717bd">Thank you!</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown, RevealZoom, RevealNotes],
+slideNumber:true, center:true, width: 960, height: 700
+});
+
+</script>
+</body>
+</html>

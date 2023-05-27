@@ -1,0 +1,109 @@
+#+title: Haskell
+#+subtitle: K31 Compilers, Spring 2023
+#+author: K. Chousos, K. Kordolaimis, P. Seitanidis, A. Tsitsoli
+#+language: en
+#+options: num:nil toc:nil date:t timestamp:nil
+:reveal_properties:
+#+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
+#+reveal_reveal_js_version: 4
+#+reveal_init_options: slideNumber:true, center:true, width: 960, height: 700
+#+reveal_theme: simple
+#+reveal_title_slide: <h1>%t</h1> <h4>%s</h4> <br> <p>%a</p>
+#+reveal_default_slide_background: https://global-uploads.webflow.com/6047a9e35e5dc54ac86ddd90/63064c5652d40eda2eb7a838_33ac2334.png
+#+reveal_default_slide_background_size: 100px
+#+reveal_default_slide_background_position: bottom left
+# #+reveal_slide_footer: <br></hl><small style="font-size: 20px">Haskell | K31 Compilers, Spring 2023</small>
+:end:
+
+* Introduction
+
+** Raison d'être
+
+- Haskell was created by a committee that was formed in the FPCA conference of 1987.
+- Its purpose was to unite the functional programming world by being a language that is:
+  - Accessible (open-source)
+  - Stable
+  - Disruptive
+  - Useful for teaching, research, as well for real-world applications
+
+** Where is it used
+
+Haskell is used in a plethora of fields and industries to solve a variety of problems. For example:
+- The Cardano blockchain platform, its protocol and its smart contract infrastructure
+- In Facebook for filtering spam.
+- Hasura, an open-source real-time GraphQL engine is written in Haskell.
+
+* Features
+
+** Laziness
+
+- A very distinctive feature of Haskell is /Lazy evaluation/.
+- Its usefulness lies in the fact that it delays the computation of an expression until the value of the computation is needed.
+- The efficiency of this operation provides the reduction of unnecessary calculations alongside the saving of time.
+- The downside of this process is that the usage of memory can be unpredictable.
+# - Lastly Lazy evaluation is a very important topic , when reffering to operational semantics.
+
+** Lambdas
+
+Lambda expressions are a way of defining an anonymous function, helping developers define functions "on the fly" and passing them directly as arguments to other functions.
+# - A lambda expression is defined using the backslash character =\= followed by the arguments, then an arrow =->= separating them from the body, a Haskell expression that is evaluated when the lambda is called.
+
+#+caption: Syntax of lambda expressions:
+#+begin_src haskell
+\arg1 arg2 ... argN -> body
+-- Example: Lambda that adds two numbers
+\x y -> x + y
+#+end_src
+
+** Monads
+
+- Monads allow you to express complex computations in a modular way, granting the ability to represent computations as *sequences of steps*.
+
+- It is a type class that defines two operations: =return= and =>>==.
+  - The return operation takes a value and puts it in a monad, lifting a *pure value* into a *monadic context*.
+  - The =>>== operation is employed to connect monadic computations together.
+
+#+REVEAL: split:t
+
+#+caption: How I/O operations are preformed in Haskell:
+#+begin_src haskell
+main :: IO ()
+main = do
+    putStrLn "What is your name ?"
+    name <- getLine
+    putStrLn ("Hello, " ++ name ++ "!")
+#+end_src
+
+** Memory management
+
+- Haskell's =ghc= implementation uses a parallel generational-copying garbage collector. That means that all memory allocations and releases happen in the background automatically.
+- In every step, Haskell's GC searches for any /live data/: Data pointed to by the /roots/ (the stack and any global variables).
+- The live data found are copied to a new heap; Any /dead/ data is discarded.
+
+** Prelude
+
+Haskell's API is represented by its /Prelude/, a structure which holds a set of standard definitions and is included automatically in all of Haskell's modules. The definitions include:
+
+- Functions: =map=, =filter=, =read=
+- Data Types: =Int=, =Bool=, =Char=
+- Type Classes: =Eq=, =Read=, =Num=
+
+* Example code
+
+** Factorial
+
+- Here's a small program that computes the factorial of a given number recursively.
+
+#+begin_src haskell
+factorial :: Int -> Int
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+#+end_src
+
+- Here's a program that does the same thing by leveraging /lambdas/.
+
+#+begin_src haskell
+factorial n = product [1..n] 
+#+end_src
+
+* Thank you!

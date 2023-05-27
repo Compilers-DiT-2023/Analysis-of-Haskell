@@ -1,0 +1,16 @@
+#+TITLE: An In-Depth Analysis of Haskell
+#+SUBTITLE: K31 Compilers, Spring 2023
+#+date: May 26th, 2023
+
+#+HTML: <p align="center"><img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/haskell_logo_icon_171013.png" /></p>
+
+* Abstract
+
+This report provides an in-depth look at the functional programming language Haskell. The first part covers the background of the language including its history and popularity, as well as its general position in the history of functional programming. It also delves into the various tools written in Haskell and its use cases in the tech industry. In the second part, control structures, laziness, identifiers, keywords, operators, lambdas, monads, memory management, namespaces, parallel programming, metaprogramming, and object-oriented properties of Haskell are discussed. The report concludes with several examples and code snippets, including a "Hello, World!" program and a factorial implementation.
+
+** Contributors
+
+- Konstantinos Chousos (@kchousos)
+- Konstantinos Kordolaimis (@kostaslemis)
+- Anastasios-Phaedon Seitanidis (@FedonSeitan)
+- Aggelos Tsitsoli (@sdi2000200)
