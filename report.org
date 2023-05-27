@@ -146,10 +146,10 @@ The first meeting was held at Yale during 1988. There, a clear list of Haskell's
 
 ***** Haskell's name
 
-During the meeting, the members of the development team were encouraged to propose one or more names. The list included names such as "Semla", "Vivaldi", "Mozart", and more. After discussion each person was given the opportunity to cross out a name they disliked. Eventually only one name remained, and it was decided that the language would be named after the mathematician and logician Haskell B. Curry [cite:@hudakHistoryHaskellBeing2007].
+During a meeting to decide on a name for the language, the members of the developing team were encouraged to suggest names . The list included names such as "Semla", "Vivaldi", "Mozart", and more. After converastion each member was given the opportunity to mark a name they didn't prefer. Eventually, only one name remained, and it was decided that the language would be named after the mathematician Haskell B. Curry. Specifically the creators decided to keep the name of "Haskell" as the final name . [cite:@hudakHistoryHaskellBeing2007].
 
-At first the chosen name was "Curry". But after a while, the committee came to the realization that they would have an overabundance of comical references regarding the name [cite:@hudakHistoryHaskellBeing2007]. Although there were various amusing jokes that could be made such as the spice carry, that is used in cooking, they were genuinely unsettled by the possibility of using Tim Curry as a way to make fun of the language.
-As Jon Fairbairn's abstract machine was referred to as TIM, and Tim Curry was well-known for his role in the /"Rocky Horror Picture Show"/, so they opted to steer clear of this direction. After additional deliberation the following day, they ultimately opted for the moniker "Haskell" for their novel programming language.
+On that particular evening of deciding the name of the language , the creators came to the fact that they would have an overabundance of comical references to curry at their disposal. [cite:@hudakHistoryHaskellBeing2007]. Although there were various amusing jokes that could be made such as the spice carry, they were prevented from using it beacuse of the actor's Tim Curry's name . Tim Curry was well-known that period . Especially for his part in the /"Rocky Horror Picture Show"/, so they opted to steer clear of this direction. After additional deliberation the day after , they ultimately opted for the moniker "Haskell" for their novel programming langu
+age. They later discovered that this name was  misheard or misunderstood  with languages such as Pascal , and that would bring a lot of confusion.
 
 ***** Haskell's goals
 
