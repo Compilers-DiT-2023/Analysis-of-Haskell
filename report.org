@@ -153,11 +153,11 @@ age. They later discovered that this name was  misheard or misunderstood  with l
 
 ***** Haskell's goals
 
-At first the committee had to clearly set the goals of the language and its purposes. January 9th through 12th of 1988 marked the first physical gathering in which the following goals were established [cite:@hudakHistoryHaskellBeing2007]:
+At first the committee had to clearly set the purposes of the language. January 9th through 12th marked one very important gathering in which the following were decided [cite:@hudakHistoryHaskellBeing2007]:
 
-1. The language should be appropriate for teaching, doing research, and lastly implementations, such as constructing big systems.
+1. The language should be appropriate for educating, doing inquiry, and lastly implementations, such as constructing big structures .
 
-2. Formal syntax and semantics should be presented in order to provide the complete description of the language.
+2. Analytic syntax and significations should be presented in order to provide the complete description of the language.
 
 3. The language must be accessible to all, and everyone should have the freedom to utilize and share it without any restrictions.
 
@@ -165,7 +165,7 @@ At first the committee had to clearly set the goals of the language and its purp
 
 5. The language's concepts should be founded upon commonly accepted ideas and principles.
 
-6. The language should aim to minimize superfluous discrepancies among functional programming languages. To achieve this, the committee's preliminary decision was to derive it from an already established language, namely OL.
+6. The language should aim to minimize superfluous discrepancies among functional programming languages.
 
 The last two goals were proof that the original vision of Haskell was to rely on battle-tested methods and patterns and only unite the separated functional programming world. But this vision was short-lived, since neither OL was used as a base and Haskell introduced a myriad of new concepts in programming.
 
