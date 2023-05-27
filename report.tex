@@ -1,4 +1,4 @@
-% Created 2023-05-26 Fri 23:50
+% Created 2023-05-27 Sat 13:53
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, titlepage, twoside]{article}
 \usepackage[utf8]{inputenc}
@@ -47,6 +47,7 @@
 
 \usepackage{rotating}
 
+\addbibresource{bibliography.bib}
 \addbibresource{/home/kchou/Textfiles/biblio.bib}
 
 %% end ox-latex features
@@ -91,15 +92,15 @@ This report provides an in-depth look at the functional programming language Has
 \setcounter{page}{2}
 
 \section{Introduction}
-\label{sec:org4d81b6b}
+\label{sec:org3280494}
 
 \subsection{History of Haskell}
-\label{sec:org245a835}
+\label{sec:org293a7c9}
 
 Haskell was born in the 1980's. It was a child of necessity. Its purpose was to be the answer to an ever-growing problem: The plethora of functional programming languages, among which there were enough differences to distinguish them, but not enough for any one to be unique enough \autocite{marlowHaskell2010Language2010}. This led to functional programming being discarded all together by many, as there didn't exist any kind of common ground between the different languages and implementations. Haskell's goal was --- and still is --- to be the pinnacle of the functional programming space. A language that would embody the functional programming principles and with capabilities suitable for real-world applications.
 
 \subsubsection{Prehistory}
-\label{sec:org2a4a580}
+\label{sec:orgf91c9d2}
 
 Functional programming first started gaining popularity around 1978, when John Backus --- the leader of the team that developed Fortran \autocite{backusFORTRANAutomaticCoding1957} and the inventor of the Backus Naur Form (BNF) --- published the famous \emph{``Can Programming Be Liberated from the von Neumann Style?''} lecture \autocite{backusCanProgrammingBe1978}. It presented functional programming as something useful in real world situations and applicable to tangible problems, as opposed to simply an academic and theoretical tool.
 
@@ -108,7 +109,7 @@ That's not to say functional programming was new. In fact, it had been around fo
 \begin{itemize}
 \item 1950's
 
-John McCarthy created Lisp \autocite{mccarthyRecursiveFunctionsSymbolic1960}, which was the pioneering high-level functional programming language at the time, during his time at the Massachusetts Institute of Technology in the 1950s. The definition of Lisp functions involved the use of Alonzo Church's lambda notation (see \hyperref[sec:orgff087f3]{Functional programming and lambda calculus}), which was expanded to enable the creation of recursive functions. Lisp was the first functional programming language to present several new paradigmatic features. Lisp merged them, and as a result enabled the support of multiple programming styles. Subsequent dialects of Lisp --- e.g Common Lisp, Racket, Scheme and Clojure \autocite{steeleCOMMONLISPLanguage1984,felleisenRacketManifesto2015,abelsonRevisedReportAlgorithmic1998,hickeyHistoryClojure2020} --- aimed to streamline and rationalize Lisp by emphasizing a purely functional foundation.
+John McCarthy created Lisp \autocite{mccarthyRecursiveFunctionsSymbolic1960}, which was the pioneering high-level functional programming language at the time, during his time at the Massachusetts Institute of Technology in the 1950s. The definition of Lisp functions involved the use of Alonzo Church's lambda notation (see \hyperref[sec:orgf1c62de]{Functional programming and lambda calculus}), which was expanded to enable the creation of recursive functions. Lisp was the first functional programming language to present several new paradigmatic features. Lisp merged them, and as a result enabled the support of multiple programming styles. Subsequent dialects of Lisp --- e.g Common Lisp, Racket, Scheme and Clojure \autocite{steeleCOMMONLISPLanguage1984,felleisenRacketManifesto2015,abelsonRevisedReportAlgorithmic1998,hickeyHistoryClojure2020} --- aimed to streamline and rationalize Lisp by emphasizing a purely functional foundation.
 
 At the same time period another functional programming language was created with the name Information Processing Language (IPL) from Allen Newell, Cliff Shaw and Herbert A. Simon  \autocite{newellIntroductionInformationProcessing1960}. IPL was created with the primary purpose of handling lists of symbols, enabling dynamic memory allocation and multitasking. It was the inventor of the concept of list processing.
 
@@ -130,11 +131,11 @@ It was at this time that John Backus's lecture was published \autocite{backusCan
 
 During the 1980's, the intuitionistic type theory, developed by Per Martin-Löf, established a connection between functional programs and constructive proofs that were expressed through dependent types.That opened up new avenues for collaborative theorem proving and had a significant impact on the evolution of later functional programming languages.
 
-David Turner created the lazy functional language Miranda \autocite{turnerMirandaNonstrictFunctional1985} in the mid 1980's. This language in particular had a significant impact on the development of Haskell (see \hyperref[sec:org2a8d5b0]{Haskell and Miranda}).
+David Turner created the lazy functional language Miranda \autocite{turnerMirandaNonstrictFunctional1985} in the mid 1980's. This language in particular had a significant impact on the development of Haskell (see \hyperref[sec:org855ad6f]{Haskell and Miranda}).
 \end{itemize}
 
 \paragraph*{Functional programming and lambda calculus}
-\label{sec:orgff087f3}
+\label{sec:orgf1c62de}
 
 In 1932 and 1933, mathematician Alonzo Church published two papers both titled ``A Set of Postulates for the Foundation of Logic'' \autocite{churchSetPostulatesFoundation1932,churchSetPostulatesFoundation1933}. In those papers a new formal system of mathematical logic was introduced that centered around the notion of functions, with the name of \emph{lambda calculus}. The purpose of using this framework was to represent calculation through function generalization and application, using binding between variables and variable substitution. Functional programming was invented as a practical application of lambda calculus, in order to benefit from its many uses.
 
@@ -145,21 +146,21 @@ It characterizes a function as a statement that accepts an input and generates a
 Many languages such as Haskell were directly influenced by lambda calculus. The former offers tangible realizations of the concepts introduced by the latter. For instance, using lambda expressions you can create functions and you can combine functions through higher-order functions.
 
 \paragraph*{The \emph{lazy} craze}
-\label{sec:org2ad8578}
+\label{sec:orga4647b9}
 
-1970--1980 was a time period in which \emph{lazy evaluation} (see \ref{sec:orgb548808}) was getting more and more attention. It had been independently invented at least three times and there were many tries in implementing programming languages that supported it as a feature \autocite{hudakHistoryHaskellBeing2007}.
+1970--1980 was a time period in which \emph{lazy evaluation} (see \ref{sec:org1a51f0a}) was getting more and more attention. It had been independently invented at least three times and there were many tries in implementing programming languages that supported it as a feature \autocite{hudakHistoryHaskellBeing2007}.
 
 This ``movement'' was one of the reasons the \emph{Functional Programming Languages and Computer Architecture} (FPCA) conference was established, which became a major conference in this field, held every other year.
 
 FPCA was only one out of many conferences held with focus on functional programming and laziness in it. Another notable conference was the \emph{Lisp and Functional Programming} (LFP) conference. In general, the field gained a lot of traction with major research papers being published and a lot of new ideas and breakthroughs being developed.
 
 \subsubsection{Origins}
-\label{sec:org68931fb}
+\label{sec:org94c6e6e}
 
 The year is 1987. The biennial FPCA conference is being held in Portland, Oregon. A meeting is organized during the conference --- initiated by Peyton Jones and Paul Hudak --- with the goal of gaining interest for creating a new functional programming language. This language would be the common ground among all of functional programming \autocite{hudakHistoryHaskellBeing2007}.
 
 \paragraph*{Haskell and Miranda}
-\label{sec:org2a8d5b0}
+\label{sec:org855ad6f}
 
 At the time the committee hadn't given a name for the language yet, and very few talks for the design and the technical part of the language had occurred. The meeting revealed that the most feasible approach was to modify a language that already existed according to the committee's needs.
 
@@ -170,18 +171,18 @@ The committee's objective was to develop a language that could serve various pur
 After the previous incident, the committee used the mailing list \texttt{fplangc@cs.ucl.ac.uk} to discuss what they would do next and used the title ``FPlang Committee'' as a placeholder till a name wad found \autocite{hudakHistoryHaskellBeing2007}.
 
 \paragraph*{The committee meetings}
-\label{sec:orgb93c44f}
+\label{sec:orge7ad75f}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{2023-05-18_12-50-04_screenshot.png}
+\includegraphics[width=.9\linewidth]{img/2023-05-18_12-50-04_screenshot.png}
 \caption{A timeline of the history of Haskell, its creation and its development \autocite{hudakHistoryHaskellBeing2007}.}
 \end{figure}
 
-The first meeting was held at Yale during 1988. There, a clear list of Haskell's goals was defined (\hyperref[sec:org65f1f1a]{Haskell's goals}) and a name was decided, that was although later changed (\hyperref[sec:org5636447]{Haskell's name}).
+The first meeting was held at Yale during 1988. There, a clear list of Haskell's goals was defined (\hyperref[sec:org439d4a0]{Haskell's goals}) and a name was decided, that was although later changed (\hyperref[sec:org6d7b4a7]{Haskell's name}).
 
 \subparagraph*{Haskell's name}
-\label{sec:org5636447}
+\label{sec:org6d7b4a7}
 
 During the meeting, the members of the development team were encouraged to propose one or more names. The list included names such as ``Semla'', ``Vivaldi'', ``Mozart'', and more. After discussion each person was given the opportunity to cross out a name they disliked. Eventually only one name remained, and it was decided that the language would be named after the mathematician and logician Haskell B. Curry \autocite{hudakHistoryHaskellBeing2007}.
 
@@ -189,7 +190,7 @@ At first the chosen name was ``Curry''. But after a while, the committee came to
 As Jon Fairbairn's abstract machine was referred to as TIM, and Tim Curry was well-known for his role in the \emph{``Rocky Horror Picture Show''}, so they opted to steer clear of this direction. After additional deliberation the following day, they ultimately opted for the moniker ``Haskell'' for their novel programming language.
 
 \subparagraph*{Haskell's goals}
-\label{sec:org65f1f1a}
+\label{sec:org439d4a0}
 
 At first the committee had to clearly set the goals of the language and its purposes. January 9th through 12th of 1988 marked the first physical gathering in which the following goals were established \autocite{hudakHistoryHaskellBeing2007}:
 
@@ -210,7 +211,7 @@ At first the committee had to clearly set the goals of the language and its purp
 The last two goals were proof that the original vision of Haskell was to rely on battle-tested methods and patterns and only unite the separated functional programming world. But this vision was short-lived, since neither OL was used as a base and Haskell introduced a myriad of new concepts in programming.
 
 \paragraph*{The Haskell Report}
-\label{sec:orgeed4737}
+\label{sec:org586ebab}
 
 In a meeting of the committee in Glasgow during 1988, it was decided that Hudak and Wadler would be responsible for editing the \emph{first Haskell report}. This report would serve as a specification for the language. Its name was ``Report on the Programming Language Haskell, A Non-strict, Purely Functional Language''. It was finally published in April 1st of 1990, with version number 1.0.
 
@@ -219,39 +220,39 @@ Its next 1.1 revision was published in August of 1991 and 1.2 in March of the fo
 The latest Haskell report was published in 2010 and is considered the current definition of the Haskell language \autocite{marlowHaskell2010Language2010,haskellwikiHaskellHaskellWiki2023}.
 
 \subsection{Haskell's popularity}
-\label{sec:orgfed8a6f}
+\label{sec:orge463338}
 
 Haskell's popularity has been recorded by two major programming languages popularity indexes, the TIOBE and PYPL indexes \autocites{carbonnellePYPLPopularitYProgramming2023}[][]{tiobeTIOBEIndex2023}.
 
 According to the TIOBE index, as of May of 2023 Haskell takes the 36th spot in programming language popularity \autocite{tiobeTIOBEIndex2023}. The TIOBE index is created and maintained by TIOBE Software BV, a company based in Eindhoven, the Netherlands. According to their \emph{About Us} page, they specialize in measuring code quality in software. The TIOBE index's ratings are based on the number of courses, jobs and users a given programming language has, and also many popular search engines such as Google and Bing.
 
-The PYPL index ranks Haskell in the 28th spot, as of May of 2023 \autocite{carbonnellePYPLPopularitYProgramming2023}. Haskell's evolution in popularity from 2005 until today is shown in figure \ref{fig:org3456e38}. The PYPL (PopularitY of Programming Language) index is based on the number of programming language specific tutorials are searched on Google \autocite{carbonnellePYPLPopularitYProgramming2023}.
+The PYPL index ranks Haskell in the 28th spot, as of May of 2023 \autocite{carbonnellePYPLPopularitYProgramming2023}. Haskell's evolution in popularity from 2005 until today is shown in figure \ref{fig:orge2cc86c}. The PYPL (PopularitY of Programming Language) index is based on the number of programming language specific tutorials are searched on Google \autocite{carbonnellePYPLPopularitYProgramming2023}.
 
 Also of note is Haskell's subreddit\footnote{\url{https://www.reddit.com/r/haskell/}}, which according to \url{https://subredditstats.com/r/haskell} has around 74,500 subscribers and an all around upward trend.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{2023-05-18_17-15-08_screenshot.png}
-\caption{\label{fig:org3456e38}Haskell's worldwide popularity since 2005 in logarithmic scale \autocite{carbonnellePYPLPopularitYProgramming2023}}
+\includegraphics[width=.9\linewidth]{img/2023-05-18_17-15-08_screenshot.png}
+\caption{\label{fig:orge2cc86c}Haskell's worldwide popularity since 2005 in logarithmic scale \autocite{carbonnellePYPLPopularitYProgramming2023}}
 \end{figure}
 
 \subsection{Use cases}
-\label{sec:org59b1a91}
+\label{sec:orgc1ec515}
 
 \subsubsection{Spam Filtering at Facebook}
-\label{sec:org49da29e}
+\label{sec:org10d85fc}
 
 Meta's secret weapon against spam and malware is a system called Sigma. Its job is to identify malicious actions on Facebook such as spam, phishing attacks, posting links to malware, etc. Threats detected by Sigma are removed automatically so they do not show up in the user's feed.
 
 Meta recently completed a full redesign of Sigma, which involved replacing the in-house(custom) FXL language formerly used to power Sigma with Haskell. The Haskell-powered Sigma can now serve up to one million requests per second \autocite{marlowFightingSpamHaskell2015}. It is also important to note that the team behind Sigma's development also made several improvements to \texttt{ghc}, making it possible for Sigma to achieve better performance from Haskell compared to the previous implementation.
 
 \paragraph*{How does Sigma work?}
-\label{sec:org1f0f69e}
+\label{sec:org5bcb0e2}
 
 Sigma is a rule engine, which means it runs a set of rules, called \emph{policies}. Every interaction on Facebook from posting a status update to clicking ``like'' results in Sigma evaluating this action with a set of policies specific to that type of action. These policies make it possible for Meta to identify and block malicious interactions.
 
 \paragraph*{Why Haskell?}
-\label{sec:orgc495cc5}
+\label{sec:orgc53e29e}
 
 The original language that Meta designed for writing its policies, FXL, was not ideal for expressing the growing scale and complexity of Facebook policies. It lacked certain abstraction capabilities, such as user-defined data types and modules, and its implementation, based on an interpreter instead of a compiler, was rather slow. This is why they decided to migrate to an existing language \autocite{marlowFightingSpamHaskell2015}.
 
@@ -271,7 +272,7 @@ updated-compiled version of Sigma as fast as possible.
 Haskell measured up quite well for the specific demands.
 
 \subsubsection{Cardano}
-\label{sec:orgb180cab}
+\label{sec:orgc8570b2}
 
 Cardano is a blockchain platform that aspires to provide a secure and scalable infrastructure for creating decentralized applications and executing \emph{smart contracts}. It was founded by a group of researchers, engineers, and academics, including experts in functional programming languages like Haskell. The core software components of Cardano, including the blockchain protocol and smart contract infrastructure, are all written in Haskell \autocite{heisenbird-eokCharlesHoskinsonWhy2021}.
 
@@ -290,17 +291,17 @@ Haskell plays a key role in the development of Cardano, powering various aspects
 Cardano benefits from the wide range of Haskell libraries and tools that are open-source. These libraries provide support for cryptography, networking, parsing, and other essential functionalities. The use of Haskell in Cardano reflects the language's suitability for building secure, high-assurance-availability systems.
 
 \subsection{Tools written in Haskell}
-\label{sec:org8772de1}
+\label{sec:orgd12159f}
 
 \subsubsection{Hackage}
-\label{sec:orgfbc5b2d}
+\label{sec:org4ce42cd}
 
 Hackage is a key part of Haskell's ecosystem and provides a convenient way for Haskell developers to find and share code \autocite{hackageHackage2023}. Hackage is a central repository of open-source Haskell packages, similar to other package managers such as PyPi for Python or npm for JavaScript.
 
-Hackage contains thousands of Haskell packages, each one provides a set of modules and functions that can be used in other projects.  Packages are identified by a unique name and version number, and are organized into categories such as ``Web'', ``Database'', ``Parsing'', and so on. It provides a way to effortlessly download and install Haskell packages, including their dependencies. Developers can upload their own packages, making them available to everybody. Uploading a package to Hackage involves creating a Cabal (see \ref{sec:org8f6c0b4}) file that describes the package and its dependencies, and then using Cabal to upload the package. Hackage uses a versioning system that allows multiple versions of a package to coexist. Thanks to the versioning system, developers can update their packages without breaking existing projects that depend on them.
+Hackage contains thousands of Haskell packages, each one provides a set of modules and functions that can be used in other projects.  Packages are identified by a unique name and version number, and are organized into categories such as ``Web'', ``Database'', ``Parsing'', and so on. It provides a way to effortlessly download and install Haskell packages, including their dependencies. Developers can upload their own packages, making them available to everybody. Uploading a package to Hackage involves creating a Cabal (see \ref{sec:org1929684}) file that describes the package and its dependencies, and then using Cabal to upload the package. Hackage uses a versioning system that allows multiple versions of a package to coexist. Thanks to the versioning system, developers can update their packages without breaking existing projects that depend on them.
 
 \subsubsection{Haddock}
-\label{sec:org90315a3}
+\label{sec:org9df7987}
 
 Haddock is a tool used for generating documentation from specially formatted comments in Haskell code \autocite{haddockHaddockDocumentation2023}. It is named after William Haddock, a British naval officer. Haddock markup is the syntax used for writing these comments, which is similar to HTML but specifically designed for documenting Haskell code. The generated documentation provides information about the functions, types, and modules defined in the code, as well as usage examples. The documentation can be generated in several formats, including HTML, \LaTeX{}, and Hoogle, a search engine for Haskell libraries.
 
@@ -309,12 +310,12 @@ Haddock is included in the Haskell Platform, a collection of tools and libraries
 Using Haddock for documentation is essential for ensuring that the codebase is well-documented and easily understandable. It helps to maintain code quality and encourages best practices in code development. Haddock is widely used in the Haskell community.
 
 \subsubsection{HLint}
-\label{sec:org6b76b76}
+\label{sec:orgf40c416}
 
 HLint is a useful tool for analyzing and optimizing Haskell code, designed by Neil Mitchell in 2006 \autocite{mitchellHLint2023}. It is an open-source project available under the BSD-3-Clause license. The main objective of HLint is to help Haskell developers write better code that is more efficient, readable, and maintainable. It achieves this by analyzing the code and identifying patterns that can be simplified or improved. Consequently it produces suggestions for refactoring the code, in order to enhance its quality and readability. Developers can use HLint to analyze individual Haskell files or complete projects. It can be easily integrated into their workflow by incorporating it with a range of tools, such as IDEs and text editors. Furthermore, it provides a web interface that can be used to search and browse through the suggestions offered. It also supports customizable rules and configurations that can cater to various coding styles and preferences.
 
 \subsubsection{HUnit}
-\label{sec:org4d43238}
+\label{sec:org437b139}
 
 HUnit is a unit testing framework and a key part of the broader Haskell ecosystem \autocite{HUnitUserGuide2023}. With HUnit, you can define test cases as functions that assert expected values against actual results. These test cases can be grouped together into test suites, which make it easy to organize and run multiple tests at once. HUnit provides a set of assertion functions that allow you to check conditions such as equality, inequality, and expected exceptions.
 
@@ -337,15 +338,15 @@ tests = TestList [testAddition, testSubtraction]
 main :: IO ()
 main = runTestTT tests
 \end{minted}
-\caption{\label{lst:orgacd9b8f}Simple example of a test case using HUnit}
+\caption{\label{lst:orgbbda403}Simple example of a test case using HUnit}
 \end{listing}
 
-In listing \ref{lst:orgacd9b8f}, \texttt{testAddition} is a test case that asserts the expected value 6 against the result of the addition 2 + 4. The \texttt{assertEqual} function is used to perform the equality check. As you can see, the \texttt{testSubtraction} test case performs a similar check. The \texttt{tests} function defines a test suite that includes the \texttt{testAddition} and \texttt{testSubtraction} test cases. Finally, the main function runs the tests using the \texttt{runTestTT} function, which prints the results to the console.
+In listing \ref{lst:orgbbda403}, \texttt{testAddition} is a test case that asserts the expected value 6 against the result of the addition 2 + 4. The \texttt{assertEqual} function is used to perform the equality check. As you can see, the \texttt{testSubtraction} test case performs a similar check. The \texttt{tests} function defines a test suite that includes the \texttt{testAddition} and \texttt{testSubtraction} test cases. Finally, the main function runs the tests using the \texttt{runTestTT} function, which prints the results to the console.
 
 By leveraging HUnit, Haskell developers can automate the testing process and easily detect bugs and errors in their code. Unit tests help ensure the reliability and correctness of software, providing confidence.
 
 \subsubsection{Hasura}
-\label{sec:org8754700}
+\label{sec:orgd84ede9}
 
 Hasura is an open-source, real-time GraphQL engine that allows developers to quickly and easily build scalable, performant APIs for their applications \autocite{hasuraInstantGraphQLAPIs}. Developers can easily connect their databases to GraphQL, allowing them to access their data through a single API. Of course, it supports a variety of databases, including PostgreSQL, MySQL, Microsoft SQL Server, and Oracle. It provides a powerful set of features that make it easy to manage complex database schemas, including automatic schema stitching, real-time data synchronization, and granular access control.
 
@@ -356,7 +357,7 @@ It has quickly become a popular choice for developers looking to leverage the po
 Haskell is a key component of Hasura's architecture. Hasura is built using Haskell, a language known for its strong type system, which helps catch errors at compile-time, and its support for lazy evaluation, which allows for efficient handling of large datasets. In general, Haskell is well-suited for building high-performance, scalable systems. For example, Hasura uses the Postgres database library for Haskell to provide seamless integration with a variety of databases.
 
 \subsubsection{QuickCheck}
-\label{sec:org4034001}
+\label{sec:orgb915471}
 
 QuickCheck is a library for automated testing of Haskell programs \autocite{claessenQuickCheckAutomaticTesting}. It was developed by Koen Claessen and John Hughes and is based upon the concept of property-based testing. Traditional testing involves writing test cases that check for expected outputs given specific inputs. In contrast, QuickCheck focuses on defining properties that must always hold true for your program, the input. It then generates random inputs and checks that these properties hold true for each one. For example, if you're testing a function that sorts a list of integers, you could define a property like ``sorting a list should produce a list in ascending order''. QuickCheck will generate random lists of integers and check that this property holds for each one.
 
@@ -365,14 +366,14 @@ To use QuickCheck, you define properties using the property function, which take
 QuickCheck is a powerful testing tool that can help you find bugs and edge cases that you might miss with traditional testing. By generating random inputs, it can help you test your program more thoroughly and find unexpected issues that you may not have considered. It's a great addition to any Haskell developer's testing toolkit.
 
 \subsubsection{Yesod}
-\label{sec:org58cb8d0}
+\label{sec:org84ab490}
 
 Yesod is a powerful and flexible web framework for Haskell that is designed to be high-level, type-safe, and scalable \autocite{yesodYesodWebFramework2023}. It provides a powerful set of tools and abstractions for building web applications. It also provides a type-safe DSL (Domain-specific language) for defining routes in your application. With its help you can be sure (at compile-time) that the URLs of your application are valid and that the provided parameters are correct. There is an ORM (Object-Relational Mapping) library included called \textbf{Persistent}, which allows you to interact with a database in a type-safe and composable way. Persistent supports several different database backends, including PostgreSQL, MySQL, and SQLite.
 
 Yesod has a type-safe library for defining and rendering HTML. Additionally, it has built-in support for user authentication and session management. Its libraries support automatic validation, error reporting, password hashing, CSRF protection, and other security-related tasks.
 
 \subsubsection{Happy \emph{and} Alex}
-\label{sec:orgbc30431}
+\label{sec:orgb5a51e8}
 
 Happy and Alex are two popular tools used in Haskell programming for generating parsers and lexers respectively. They greatly simplify the process of handling complex input formats by automatically generating the necessary code based on provided specifications of a grammar.
 
@@ -383,18 +384,18 @@ Alex, or the Alex Lexer Generator, is used for generating lexical analyzers in H
 By separating the concerns of parsing and lexing from the rest of the code, Happy and Alex allow developers to focus on the core logic of their programs. They automate the generation of code that can handle complex input structures, saving developers time and effort. Moreover, the generated parsers and lexers are highly optimized, contributing to the overall performance of the Haskell programs.
 
 \subsubsection{Cabal}
-\label{sec:org8f6c0b4}
+\label{sec:org1929684}
 
-Cabal is a build system and package manager for Haskell \autocite{Cabal2023}. It provides a way to manage dependencies and build Haskell projects, making it easier to develop and distribute Haskell software. In Cabal, a package is a collection of Haskell \emph{modules} and other files that can be compiled into a library or executable. Each package is identified by a unique name and version number. Dependencies are declared in a package's Cabal file, which lists the names and version ranges of the required packages. There is a build system that can compile Haskell code into executables and libraries. It uses the GHC compiler by default, but can also work with other compilers such as Hugs or JHC. Cabal also integrates with Hackage (see \ref{sec:orgfbc5b2d}), the central repository of open-source Haskell packages.
+Cabal is a build system and package manager for Haskell \autocite{Cabal2023}. It provides a way to manage dependencies and build Haskell projects, making it easier to develop and distribute Haskell software. In Cabal, a package is a collection of Haskell \emph{modules} and other files that can be compiled into a library or executable. Each package is identified by a unique name and version number. Dependencies are declared in a package's Cabal file, which lists the names and version ranges of the required packages. There is a build system that can compile Haskell code into executables and libraries. It uses the GHC compiler by default, but can also work with other compilers such as Hugs or JHC. Cabal also integrates with Hackage (see \ref{sec:org4ce42cd}), the central repository of open-source Haskell packages.
 
 Cabal supports sandboxing, which allows you to create isolated environments for your projects. This can be useful for testing and development, since it ensures that dependencies are not shared between projects and avoids version conflicts. It is similar to Anaconda for Python.
 
 Cabal is widely used in the Haskell community and is a key part of the Haskell development toolchain.
 
 \subsubsection{The Haskell Tool Stack (Stack)}
-\label{sec:orgf74c7b4}
+\label{sec:org4c5b8ff}
 
-Stack is a popular build tool for Haskell that was originally created to solve problems that developers were facing with Cabal (see \ref{sec:org8f6c0b4}), another Haskell build tool \autocite{CommercialhaskellStack2023}.
+Stack is a popular build tool for Haskell that was originally created to solve problems that developers were facing with Cabal (see \ref{sec:org1929684}), another Haskell build tool \autocite{CommercialhaskellStack2023}.
 
 The main focus of Stack's design point is reproducible builds. If you run \texttt{stack build} today, you must get the same result as running \texttt{stack build} tomorrow. To simplify this process, Stack uses curated package sets called snapshots.
 
@@ -403,36 +404,36 @@ One of the biggest advantages of Stack is that it provides deterministic builds.
 Stack is relatively easy to set up and use. It is easy to get started with a new project using the \texttt{stack new <project-name>} command. Finally, Stack integrates well with other Haskell tools such as Haddock and GHCi.
 
 \subsubsection{Hledger}
-\label{sec:org9196b15}
+\label{sec:org5a0b9ff}
 
 Hledger is a command-line tool for double-entry accounting, written in Haskell. It is part of the larger Plain Text Accounting paradigm\footnote{\url{https://plaintextaccounting.org/}}. It is cross platform. It can import from and export to various data formats such as CSV or TSV. Also, it has multiple choices for a User Interface: It can be used from the command-line, a web browser, on mobile, and has various edior/IDE plugins \autocite{michaelHledger2023}.
 
 \subsubsection{Pandoc}
-\label{sec:org639fa19}
+\label{sec:org2d59b4f}
 
 Pandoc is a Haskell library used for markup conversion. It is a powerful command-line tool that can inter-convert various file formats, e.g. DocX to PDF, \LaTeX{} to Markdown, Jupyter Notebook to HTML etc. An interesting feature is its Pandoc \emph{filters}, which can be written directly in Haskell and provide the ability to modify the intermediate Abstract Syntax Tree (AST) of the conversion \autocite{macfarlanePandoc2023}\footnote{Pandoc was also used extensively in the writing of this document for converting Markdown to Org-Mode, which was later exported to \LaTeX{} and then compiled to this PDF document.}.
 
 \section{Analyzing Haskell}
-\label{sec:orgb6c60c1}
+\label{sec:org10236f8}
 
 \subsection{Control Structures}
-\label{sec:org8bbe20b}
+\label{sec:org846886d}
 
 Usually functional languages like Haskell do not have constructs to change the execution path or to provide loops. Languages of this category try to follow mathematical notation for function definition and as a result they provide multiple definitions of the same function to cover different input cases. This approach requires that the language has pattern maching capabilities. However, some functional languages like Haskell provide some control constructs to facilitate programmers' work.
 
 \subsubsection{Pattern Matching}
-\label{sec:org809663c}
+\label{sec:org2f60cd1}
 
 Pattern matching is a mechanism used to distinguish a structure of variables and constructors (either predefined or user-defined), called \emph{pattern} \autocite[chapter 3.17]{marlowHaskell2010Language2010}.
 
 A given value fulfills a pattern if there is a substitution of its variables so that the instantiated pattern evaluates to the given value. Pattern matching can be used to provide multiple definitions of a function or within a case expression
 
 \paragraph*{Case Expression}
-\label{sec:org278f951}
+\label{sec:org06757c3}
 
 In Haskell, the \texttt{case} expression is a control structure used for pattern matching and branching based on the structure of a value. It helps the language to handle pattern matching of complex expressions or to express multiple possible outcomes in a single expression \autocite{kremerCPSC449Programming2015}.
 
-The syntax for the \texttt{case} clause is shown in listing \ref{lst:orgb2bcdfb}, and in listing \ref{lst:org6fe725b} the \texttt{if-then-else} clause implemented with \texttt{case} is shown.
+The syntax for the \texttt{case} clause is shown in listing \ref{lst:orgdeccdff}, and in listing \ref{lst:org9c17d09} the \texttt{if-then-else} clause implemented with \texttt{case} is shown.
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
@@ -442,7 +443,7 @@ case expression of
     ...
     patternN -> resultN
 \end{minted}
-\caption{\label{lst:orgb2bcdfb}\texttt{case} clause}
+\caption{\label{lst:orgdeccdff}\texttt{case} clause}
 \end{listing}
 
 \begin{listing}[htbp]
@@ -451,13 +452,13 @@ case expression of
     True  -> result1
     False -> result2
 \end{minted}
-\caption{\label{lst:org6fe725b}\texttt{if-then-else} clause using \texttt{case}}
+\caption{\label{lst:org9c17d09}\texttt{if-then-else} clause using \texttt{case}}
 \end{listing}
 
 \subsubsection{Guards}
-\label{sec:org251bbf3}
+\label{sec:orgc3338a9}
 
-Guards is a control construct that is used to specify conditions to be satisfied for a portion of a program. Guards are typically used with function declarations as follows and they are represented by a pipe (\texttt{|}) \autocite{kremerCPSC449Programming2015}. An example is shown in listing \ref{lst:org88e474d} (\texttt{otherwise} is just an alias to \texttt{True}).
+Guards is a control construct that is used to specify conditions to be satisfied for a portion of a program. Guards are typically used with function declarations as follows and they are represented by a pipe (\texttt{|}) \autocite{kremerCPSC449Programming2015}. An example is shown in listing \ref{lst:org72fd6a5} (\texttt{otherwise} is just an alias to \texttt{True}).
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
@@ -467,14 +468,14 @@ factorial n
     | n == 0    = 1
     | otherwise = n * factorial (n - 1)
 \end{minted}
-\caption{\label{lst:org88e474d}Example of a function declaration using guards}
+\caption{\label{lst:org72fd6a5}Example of a function declaration using guards}
 \end{listing}
 
 \subsubsection{Monads}
-\label{sec:org5c9c10d}
+\label{sec:orgceaa2f1}
 
 \paragraph*{Definition}
-\label{sec:org64d5614}
+\label{sec:orgde49126}
 
 A \emph{Monad} is a subclass of Applicative class that is defined by the following three things  \autocite{wikibooksHaskellUnderstandingMonads2021}:
 
@@ -510,7 +511,7 @@ class (Functor f) => Applicative f where
 Monads provide a way to handle effects and control flow in a pure functional language like Haskell. Monads facilitates the encapsulation of computations that involve side effects or non-determinism and give the ability to control their sequencing and interaction.
 
 \paragraph*{\texttt{do} Notation}
-\label{sec:org3abe9d0}
+\label{sec:org20db2ad}
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
@@ -540,7 +541,7 @@ sumTwoNumbers = do
 \end{listing}
 
 \subsubsection{Recursion}
-\label{sec:org5b13427}
+\label{sec:org3a6603e}
 
 Haskell does not have a control structure to achieve repetition. This feature is provided using recursion, which makes it a fundamental and very powerful tool for working with lists and other similar structures. The repetition is achieved using recursive functions that call themseslves with modified arguments, until they reach the defined base case \autocite{kremerCPSC449Programming2015}.
 
@@ -554,7 +555,7 @@ factorial n = n * factorial (n - 1)
 \end{listing}
 
 \subsection{Laziness}
-\label{sec:orgb548808}
+\label{sec:org1a51f0a}
 
 Lazy evaluation is an evaluation approach that delays the computation of an expression until its value is necessary, thus preventing redundant calculations. This feature attracted a lot of experts and led them to contribute to the design offers the language when Haskell was created.
 
@@ -563,32 +564,32 @@ In Haskell, expressions in this context are not assessed when connected to varia
 Although lazy evaluation offers numerous benefits, its primary disadvantage lies in the unpredictability of the usage of the memory. The challenge arises because expressions such as \mintinline{haskell}{5+5 :: Int} and \mintinline{haskell}{10 :: Int} --- which produce the same value of 10 --- may not have the same sizes, resulting in problems with the memory such as irregular memory usage.
 
 \subsubsection{Lazy evaluation and semantics}
-\label{sec:org3676226}
+\label{sec:orgf5fd041}
 
 Operational semantics in Haskell define how a program is examined, and lazy evaluation is a key aspect of it. Conversely, denotational semantics includes non-strict semantics, which describe what a program calculates. The non-strict semantics approach enables the handling of values that are not defined, and also permits the processing of unending data.
 
 \subsection{Identifiers}
-\label{sec:org690d174}
+\label{sec:orgad3f39e}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{2023-05-22_21-55-01_screenshot.png}
+\includegraphics[width=.9\linewidth]{img/2023-05-22_21-55-01_screenshot.png}
 \caption{Identifiers in BNF notation \autocite[section 2.4]{marlowHaskell2010Language2010}}
 \end{figure}
 
 
 \subsubsection{Rules}
-\label{sec:orgea56780}
+\label{sec:org248f21e}
 
 Identifiers in Haskell start by a letter that can be followed by any combination of zero or more letters, digits, quotes or underscores.  Underscore by itself is a reserved identifier and in patterns can act as a wildcard. Identifiers are also case sensitive and keywords such as if, infix, else etc cannot be used as identifiers.
 
 \subsubsection{Purpose}
-\label{sec:org1d34997}
+\label{sec:org014126f}
 
 Identifiers are used to name program entities in Haskell programs. These entities contain variables, functions and data types. Every used identifier must obey the same strict name restrictions and they would better follow some naming conventions that will be described later.  Worth mentioning that Haskell is a statically typed language which means that the type of an identifier is determined at compile time.
 
 \subsubsection{Scope}
-\label{sec:org1c0b7af}
+\label{sec:org8775a0f}
 
 The scope of an identifier indicates the part of the program that can access it. In Haskell there are 3 possible scopes for each identifier:
 
@@ -601,7 +602,7 @@ The scope of an identifier indicates the part of the program that can access it.
 \end{itemize}
 
 \subsubsection{Naming conventions}
-\label{sec:org7b826f7}
+\label{sec:org1eea835}
 
 The name of an identifier is important to be meaningful and descriptive so the code gets more readable, understandable and maintainable. Also, a good practice is to follow the following conventions \autocite{haskellwikiProgrammingGuidelinesHaskellWiki2022}:
 
@@ -616,10 +617,10 @@ The name of an identifier is important to be meaningful and descriptive so the c
 \end{itemize}
 
 \subsection{Keywords}
-\label{sec:org7ab9ada}
+\label{sec:orgb575c95}
 
 \subsubsection{\texttt{data}}
-\label{sec:org3013f48}
+\label{sec:orgf6580fe}
 
 The keyword \texttt{data} is often used in many cases. One very popular case is the creation of an algebraic data type. These kind of data types involve the combination of types through many different ways. The result is the creation of complex types. An example of it's use can be the following:
 
@@ -629,7 +630,7 @@ data Mammal a = Cat a
 \end{minted}
 
 \subsubsection{\texttt{data family}}
-\label{sec:org73f99e2}
+\label{sec:org43ed98a}
 
 Type families offer a method to declare functions. The environment they are created in is called type level. These functions can be used to connect different presentations. This way a more polymorphic type system can be accomplished. Specifically, data families illustrate data and newtype declarations in a method which is indexed. For example, the definition of a data family in the form of list is:
 
@@ -638,17 +639,17 @@ data family ANOTHERLIST l
 \end{minted}
 
 \subsubsection{\texttt{data instance}}
-\label{sec:org42d0a0a}
+\label{sec:org6cf773f}
 
-This keyword relates to paragraph  \hyperref[sec:org73f99e2]{\texttt{data family}}. Specifically, they enable the declaration of types. So this keyword offers a guide for the execution of the above types.
+This keyword relates to paragraph  \hyperref[sec:org43ed98a]{\texttt{data family}}. Specifically, they enable the declaration of types. So this keyword offers a guide for the execution of the above types.
 
 \subsubsection{\texttt{default}}
-\label{sec:orgbf66a7a}
+\label{sec:orgcd5774f}
 
 In Haskell many obscurities can happen when using the class \texttt{Num}, so a way of handling them is by using the \texttt{default} declaration.
 
 \subsubsection{\texttt{deriving}}
-\label{sec:org6c90c27}
+\label{sec:org691b52a}
 
 This keyword provides an automatic creation of often used actions for data types that are declared from the user. For example a data type can be defined as an instance of the \texttt{Show} class. This derived instance for \texttt{Show} provides an automatic creation of the \texttt{show} operation. The \texttt{show} operation transforms a value of the data type into a string illustration.
 
@@ -658,7 +659,7 @@ data Action = Temp
 \end{minted}
 
 \subsubsection{\texttt{deriving instance}}
-\label{sec:org9fcbba8}
+\label{sec:orga6287ac}
 
 It is used in order to define an instance. It refers to a type class. These are created for data types that already exist. They are created differently from the data type. For example:
 
@@ -678,7 +679,7 @@ print (show myValue)
 \end{listing}
 
 \subsubsection{\texttt{do}}
-\label{sec:org3465a31}
+\label{sec:orgaa50176}
 
 This keyword offers an easier way of using monads. Using the \texttt{do} notation the creation of code that specifies authoritative programming is possible. For example we have the following:
 
@@ -689,7 +690,7 @@ do {a ; b <- c ; process b}
 In the above example \texttt{a} illustrates an operation that is executed but its output is not assigned to a variable. Also \mintinline{haskell}{b <- c} is a way of binding that retrieves the value from the monadic computation \texttt{c} and binds it with \texttt{b}.
 
 \subsubsection{\texttt{forall}}
-\label{sec:org412649d}
+\label{sec:org23265a3}
 
 In Haskell, type variables are considered universally assessed (by default). This means that there's no need for the type variables to be quantified universally. However it is very often in Haskell that a programmer wants to clarify the quantification distinctly. So the \texttt{forall} keyword is used in order to achieve that. For example the following syntax:
 
@@ -698,17 +699,17 @@ forall b.b -> b
 \end{minted}
 
 \subsubsection{\texttt{foreign}}
-\label{sec:orga7a1cc5}
+\label{sec:orga3b1fe2}
 
 This keyword is useful in case a programmer wants to use a function that it is not defined in any Haskell's library or to give permission to another language to use functions that are written in Haskell. The most common commands are \mintinline{haskell}{foreign import declaration}, and \mintinline{haskell}{foreign export declaration}. The first one gives permission to a programmer that writes a program in Haskell to use a function which is not included in any Haskell library. The second gives permission to non Haskell programming languages to use a function which is created in Haskell.
 
 \subsubsection{\texttt{hiding}}
-\label{sec:org7ac3367}
+\label{sec:org8d119f5}
 
 Haskell allows to include a module and avoid the entities that are useless. The keyword \texttt{hiding} handles entities that are useless for the program. Specifically, it excludes them keeping for the program only entities that are useful. The syntax is the following: \mintinline{haskell}{import Data.List hiding (sort, isInfixOf, intersperse)}.
 
 \subsubsection{\texttt{if}, \texttt{then}, \texttt{else}}
-\label{sec:org2439e8a}
+\label{sec:orgbde6489}
 
 Haskell --- just like other programming languages --- offer a way to create conditional expressions. A program evaluating a condition has some options in order to choose between expressions. The syntax is the following:
 
@@ -717,12 +718,12 @@ if condition then expression1 else expression2
 \end{minted}
 
 \subsubsection{\texttt{import}}
-\label{sec:org3e58291}
+\label{sec:orge4c4818}
 
 In Haskell the reference between modules is possible. This can happen with the keyword \texttt{import}. This way modules can use entities that belong to other modules. The general form of the keyword is: \mintinline{haskell}{import ModuleName (entity1, entity2, ...)}.
 
 \subsubsection{\texttt{infix}, \texttt{infixl}, \texttt{infixr}}
-\label{sec:org2b9d1c5}
+\label{sec:org12c2ad5}
 
 Fixity declaration is a feature which is used to declare the method that the operators can be associated and the priority which they tie in expressions. It gives the ability of defining the behavior of operators when they appear together. These are the following kind of fixity declarations:
 
@@ -737,7 +738,7 @@ Fixity declaration is a feature which is used to declare the method that the ope
 The higher the number the higher the priority of evaluating the operator first in an expression. For example: \mintinline{haskell}{infixl 6 +}. This state says that addition has left-associativity and the precedence of it is 6.
 
 \subsubsection{\texttt{instance}}
-\label{sec:org280e80c}
+\label{sec:org37695f3}
 
 A type can be defined as an instance. It will refer to a class. This method is done using this keyword. Also it allows to provide the implementations for the class methods that are associated with it.
 
@@ -746,7 +747,7 @@ instance ClassName Type where
 \end{minted}
 
 \subsubsection{\texttt{let}, \texttt{in}}
-\label{sec:org806bab8}
+\label{sec:orge7229b1}
 
 These keywords are commonly used in order to define variables in a specific scope. If the \texttt{in} keyword is included then it states the scope of the declaration, else the declaration is considered as district. Finally the syntax is the following:
 
@@ -755,12 +756,12 @@ let declaration1 ; ... ; declarationn in s
 \end{minted}
 
 \subsubsection{\texttt{module}}
-\label{sec:org9b7b9a8}
+\label{sec:orgb28fdaf}
 
 It's a container that holds related definitions, functions, types, entities etc.
 
 \subsubsection{\texttt{newtype}}
-\label{sec:orgc484705}
+\label{sec:org678aa07}
 
 This keyword is used as a way to create new types. Specifically those types are the existing algebraic data types, but with different names. This method offers a way to present distinct types that have the same representation as existing ones. The syntax is
 
@@ -771,7 +772,7 @@ newtype NewTypeName = Constructor ExistingType
 The difference between \texttt{newtype} and other type declaration keywords is that it forces stricter type-checking.
 
 \subsubsection{\texttt{proc}}
-\label{sec:org61842e4}
+\label{sec:orga1d7e75}
 
 The keyword \texttt{proc} is responsible for the definition of a very important feature. It is called \emph{arrow abstractions}. The result of it is the creation of an arrow. An arrow is a generalized function. It is used because of it's expressiveness when it comes to illustrating calculations and control flow. The syntax of this keyword is the following:
 
@@ -781,7 +782,7 @@ proc pattern -> do
 \end{minted}
 
 \subsubsection{\texttt{qualified}}
-\label{sec:orgc183312}
+\label{sec:org3d01272}
 
 The keyword \texttt{qualified} is used as a way to include a module. However in this case the presentation of its name inside the scope can be avoided. This technique is often used when there are entities of modules with the same names, so the danger of a conflict happening is high. For example:
 
@@ -790,29 +791,29 @@ import qualified Data.Text
 \end{minted}
 
 \subsubsection{\texttt{rec}}
-\label{sec:org275ee5e}
+\label{sec:orga43fcda}
 
 This keyword is used in conjunction with a specific flag (\texttt{-XDoRec}). It is used in order to activate connections. Those connections have recursion. This occurs within the \texttt{do} block. By default this is not allowed. A \texttt{do} block is a way of putting in order operations.
 
 \subsubsection{\texttt{type}}
-\label{sec:org6204c74}
+\label{sec:org308a0fe}
 
 \texttt{type} can be used as a way of renaming an already existing algebraic data type, and every time this type is referred within the program with the new name it is being executed. This way, it is more convenient to refer to complex types. For example \mintinline{haskell}{type PhoneNumber = String}.
 
 This way, whenever a program uses the type \texttt{String} it can use the type \texttt{PhoneNumber} (which are the same now) as well and if there's a reference of type \texttt{PhoneNumber} it can be used wherever the original type (\texttt{String}) is anticipated.
 
 \subsubsection{\texttt{type family}}
-\label{sec:org53f3f8c}
+\label{sec:org9f49a93}
 
 In Haskell a \texttt{type family} enables type generalization. It is used as a way to declare specific types (family types). They are synonyms and they are related.
 
 \subsubsection{\texttt{type instance}}
-\label{sec:org13d5610}
+\label{sec:orgf64f390}
 
 This keyword is used in order to create an instance of the above kind of type.
 
 \subsubsection{\texttt{where}}
-\label{sec:org4446cbb}
+\label{sec:org2640e2f}
 
 It allows to declare a definition, like a function or a value, that can be seen and used inside a scope. The \texttt{where} statement is attached to some construct like a function definition and can be used in relation to that. For example:
 
@@ -826,7 +827,7 @@ calculateDiscount price discountRate = discountedPrice
 The \texttt{where} statements declare the variable within the where clause, we define \texttt{discountedPrice}, which in this case illustrates the price after the discount.
 
 \subsubsection{\texttt{\{} and \texttt{\}}}
-\label{sec:org4c6feb2}
+\label{sec:org5d74a97}
 
 This keyword is used in order to define the scope of various statements. The statements are separated from each other with a semicolon (\texttt{;}). For example:
 
@@ -841,12 +842,12 @@ record field1 = value1, field2 = value2, ...
 \end{minted}
 
 \subsubsection{\texttt{\{-} and \texttt{-\}}}
-\label{sec:org01deecb}
+\label{sec:org76ce99b}
 
 This is used as a way to write multi-line comments in Haskell. Specifically everything inside the \texttt{\{-} and \texttt{-\}} is considered as a comment and will be avoided from the compiler during the compilation.
 
 \subsubsection{\texttt{|}}
-\label{sec:org108af20}
+\label{sec:orgcc2aa83}
 
 A pipe can be used in the following cases:
 
@@ -876,17 +877,17 @@ A pipe can be used in the following cases:
 \end{enumerate}
 
 \subsubsection{\texttt{\textasciitilde{}}}
-\label{sec:orge852c1f}
+\label{sec:org20d978a}
 
 The tilde is used in order to denote a lazy pattern bind. They provide a mechanism for introducing patterns that are evaluated when needed. This type of behavior can be particularly useful when dealing with possibly infinite data structures.
 
 \subsubsection{\texttt{`}}
-\label{sec:orgd112cb1}
+\label{sec:orgd9c00a4}
 
 This feature allows to use infix notation inside statements \autocite{marlowHaskell2010Language2010}. For example backticks can be used to treat add as an infix operator: \mintinline{haskell}{result = 5 `add` 3}.
 
 \subsubsection{\texttt{\_}}
-\label{sec:org4b628f5}
+\label{sec:orga9b0652}
 
 It is used as a token that matches a value. It basically represents a value that there's no need to distinctly name. For example:
 
@@ -897,7 +898,7 @@ getFirstElement (x:_) = Just x
 \end{minted}
 
 \subsubsection{\texttt{\textbackslash{}}}
-\label{sec:org8131ff0}
+\label{sec:orgf720c93}
 
 The backlash is used as a way to split a string in many lines. For example:
 
@@ -913,7 +914,7 @@ subtract = \x -> x - 1
 \end{minted}
 
 \subsubsection{\texttt{[|} and \texttt{|]}}
-\label{sec:orge35c158}
+\label{sec:orgffeb1a7}
 
 It is used in the following cases:
 
@@ -930,7 +931,7 @@ It is used in the following cases:
 \end{enumerate}
 
 \subsubsection{\texttt{@}}
-\label{sec:org046b100}
+\label{sec:org9b47e89}
 
 It offers a method to give a name to a sub-pattern. This allows to refer to the matched value by the given name in the scope. For example:
 
@@ -945,12 +946,12 @@ The pattern \mintinline{haskell}{newList@(first:remaining)} is an as-pattern. It
 
 
 \subsubsection{\texttt{*}}
-\label{sec:org4b59951}
+\label{sec:orgb424b6b}
 
 In Haskell the form of specific types (boxed) are represented with the symbol \texttt{*}. For example the \texttt{*} kind indicates that Int is a boxed type.
 
 \subsubsection{\texttt{?}}
-\label{sec:org3142307}
+\label{sec:org3d955dc}
 
 It is used in cases like the following:
 
@@ -963,12 +964,12 @@ ghci> :t ?name ++ " is awesome!"
 In this example, \texttt{?name} is an implicit parameter of type \texttt{String}. The expression \mintinline{haskell}{?name ++ " is awesome!"} concatenates the value of \texttt{?name} with the string `` is awesome!''.
 
 \subsubsection{\texttt{=>}}
-\label{sec:orge4c710f}
+\label{sec:org28fcdb0}
 
 It is used to specify constraints on the type variables or type classes that are involved in the function signature.
 
 \subsubsection{\texttt{<-}}
-\label{sec:org0227715}
+\label{sec:org522a168}
 
 \begin{enumerate}
 \item It is used to bind the result of a monadic action to a variable.
@@ -979,7 +980,7 @@ It is used to specify constraints on the type variables or type classes that are
 \end{enumerate}
 
 \subsubsection{\texttt{;}}
-\label{sec:orgc71e7a4}
+\label{sec:orgf449168}
 
 It is used as a way to divide expressions in a sequence of statements that are enclosed in braces. For example:
 
@@ -991,7 +992,7 @@ putStrLn "World";
 \end{minted}
 
 \subsubsection{\texttt{::}}
-\label{sec:orgca06cd7}
+\label{sec:org105c61f}
 
 It is used to indicate the type signature of a declaration. For example:
 
@@ -1006,7 +1007,7 @@ type [Int] -> Int -> Int
 \end{minted}
 
 \subsubsection{\texttt{->}}
-\label{sec:org82e18b0}
+\label{sec:orgdec5cab}
 
 \begin{enumerate}
 \item It is used to denote the type of a function that takes one or more arguments and returns a result.
@@ -1021,12 +1022,12 @@ type [Int] -> Int -> Int
 \end{enumerate}
 
 \subsubsection{\texttt{-<{}<{}}}
-\label{sec:orgd2eaad2}
+\label{sec:orgb568492}
 
 It is used as a way to express calculations in a way that uses arrows.
 
 \subsubsection{\texttt{!}}
-\label{sec:orgb7ae2f1}
+\label{sec:org05fe545}
 
 Algebraic datatypes in Haskell are defined by constructors, which take one or more arguments. When a new value is created using a constructor, the corresponding values that will be merged to create the final value are generated by evaluating the arguments.
 
@@ -1034,30 +1035,30 @@ Haskell follows lazy evaluation by default, implying that the arguments supplied
 
 Haskell offers a solution to this problem by allowing for the specification of strictness for the arguments provided to a data constructor. This is achieved through the use of a strictness flag represented by the symbol \texttt{!}, which is included in the algebraic datatype declaration to specify the arguments that must be computed immediately upon constructor application \autocite{marlowHaskell2010Language2010,haskellwikiHaskellHaskellWiki2023}.
 
-For example: If we aim to define a binary tree data type in Haskell, we can depict a binary tree as a node containing a value and two children, where each child can either be another node or an empty leaf. We can establish this data type using two constructors; one for the internal nodes and another for the leaves (listing \ref{lst:org873af97}).
+For example: If we aim to define a binary tree data type in Haskell, we can depict a binary tree as a node containing a value and two children, where each child can either be another node or an empty leaf. We can establish this data type using two constructors; one for the internal nodes and another for the leaves (listing \ref{lst:orgc2c6372}).
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
 data BinaryTree a = Node a !(BinaryTree a) !(BinaryTree a)
   | Leaf
 \end{minted}
-\caption{\label{lst:org873af97}Definition of the \texttt{BinaryTree} datatype.}
+\caption{\label{lst:orgc2c6372}Definition of the \texttt{BinaryTree} datatype.}
 \end{listing}
 
 The \texttt{BinaryTree} data type, consisting of two constructors: \texttt{Node} and \texttt{Leaf}. The \texttt{Node} constructor receives three arguments - a value of type ``a'', and two \texttt{BinaryTree} ``a'' values that represent the node's left and right children. The presence of an exclamation point before each child argument specifies that the children must be strictly evaluated. This denotes that their values will be calculated before the \texttt{Node} constructor is utilized, ensuring that the entire \texttt{BinaryTree} value is wholly computed during its construction.
 
-Also, the exclamation point is further utilized denoting rigor within patterns (see listing \ref{lst:orgbd871be}). The function uses a bang pattern to denote that its arguments \texttt{x} and \texttt{y} must be calculated strictly prior to the application of the function. This ensures that any possible delay in evaluating the arguments is eliminated, which can improve performance in certain scenarios.
+Also, the exclamation point is further utilized denoting rigor within patterns (see listing \ref{lst:orgf4afbb3}). The function uses a bang pattern to denote that its arguments \texttt{x} and \texttt{y} must be calculated strictly prior to the application of the function. This ensures that any possible delay in evaluating the arguments is eliminated, which can improve performance in certain scenarios.
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
 g :: Int -> Int -> Int
 g !! y = x * y
 \end{minted}
-\caption{\label{lst:orgbd871be}Pattern matching}
+\caption{\label{lst:orgf4afbb3}Pattern matching}
 \end{listing}
 
 \subsection{Haskell's Prelude}
-\label{sec:org63430ea}
+\label{sec:org8c7b564}
 
 \texttt{Prelude} is a module that contains a small set of standard definitions and is included automatically into all Haskell modules \autocite{haskellwikiHaskellHaskellWiki2023}. It can be thought of as Haskell's default API.
 
@@ -1066,7 +1067,7 @@ The Prelude provides the user with a wide range of function, data types and type
 The following can be found in \url{https://hackage.haskell.org} \autocite{hackagePrelude2023}.
 
 \subsubsection{Basic Functions}
-\label{sec:org449866a}
+\label{sec:org20083ef}
 
 Some of the most used functions are the following:
 
@@ -1081,7 +1082,7 @@ Some of the most used functions are the following:
 \end{itemize}
 
 \subsubsection{Basic Data Types}
-\label{sec:org89eb744}
+\label{sec:orgc33adb9}
 
 Some of the most used data types are the following:
 
@@ -1098,7 +1099,7 @@ Some of the most used data types are the following:
 \end{itemize}
 
 \subsubsection{Basic Type Classes}
-\label{sec:org5caf32c}
+\label{sec:org6eaaaa9}
 
 \begin{itemize}
 \item \texttt{Eq}: defines equality and inequality
@@ -1109,7 +1110,7 @@ Some of the most used data types are the following:
 \end{itemize}
 
 \subsubsection{Standard Output Functions}
-\label{sec:orge3bc291}
+\label{sec:orgd5e0806}
 
 \begin{itemize}
 \item \texttt{putChar}: writing a char
@@ -1122,7 +1123,7 @@ Some of the most used data types are the following:
 \end{itemize}
 
 \subsubsection{Standard Input Functions}
-\label{sec:org4168a3b}
+\label{sec:org5f817e8}
 
 \begin{itemize}
 \item \texttt{getChar}: reading a char
@@ -1133,7 +1134,7 @@ Some of the most used data types are the following:
 \end{itemize}
 
 \subsubsection{Error Functions}
-\label{sec:orgf93a070}
+\label{sec:orgaa5c3a3}
 
 \begin{itemize}
 \item \texttt{error}: stops running program due to error
@@ -1144,7 +1145,7 @@ Some of the most used data types are the following:
 \end{itemize}
 
 \subsubsection{Filepath Functions}
-\label{sec:org2424492}
+\label{sec:org710153b}
 
 \begin{itemize}
 \item \texttt{readFile}: reading a file
@@ -1155,7 +1156,7 @@ Some of the most used data types are the following:
 \end{itemize}
 
 \subsubsection{Shows Functions}
-\label{sec:org68f248e}
+\label{sec:org5620c4b}
 
 \begin{itemize}
 \item \texttt{shows}: transforms a value to a String type
@@ -1168,10 +1169,10 @@ Some of the most used data types are the following:
 \end{itemize}
 
 \subsection{Operators}
-\label{sec:org122edc9}
+\label{sec:orge9ccd8b}
 
 \subsubsection{In general}
-\label{sec:org60485bf}
+\label{sec:org1b11e92}
 
 Haskell has a rich set of built-in operators, which is included in the prelude \autocite{librariesathaskelldotorgHaskellPreludeDocumentation2023}. Therefore, it supports operator overload, which means that the user can define his own operators and define their functionality.
 
@@ -1183,7 +1184,7 @@ In Haskell, operators are defined as functions that take one or more arguments. 
 \end{itemize}
 
 \begin{table}[htbp]
-\caption{\label{tab:orgee0f0af}Operators and their types in Haskell's prelude \autocite{fagerbergDM22ProgrammingLanguages}}
+\caption{\label{tab:orgb331c9b}Operators and their types in Haskell's prelude \autocite{fagerbergDM22ProgrammingLanguages}}
 \centering
 \begin{tabular}{l|r}
 \hline
@@ -1219,11 +1220,11 @@ The colon operator solely is reserved by Haskell as the default list constructor
 \end{array}
 \end{aligned}
 \end{displaymath}
-\caption{\label{orgb03b792}Haskell operators in BNF form}
+\caption{\label{org1d0471a}Haskell operators in BNF form}
 \end{figure}
 
 \subsubsection{Fixity Declarations}
-\label{sec:org0a439c8}
+\label{sec:org1f0543f}
 
 Like in every other programming language, each Haskell operator has a precedence. In Haskell, this characteristic is expressed by an integer value in the range of 0 to 9.
 
@@ -1237,7 +1238,7 @@ There are 3 kinds of fixity:
 \item right-associativity (infixr)
 \end{itemize}
 
-For every operator the precedence and the fixity have to be declared. This declaration in BNF is shown in figure \ref{org8650028}.
+For every operator the precedence and the fixity have to be declared. This declaration in BNF is shown in figure \ref{org4babff1}.
 
 \begin{figure}
 \begin{displaymath}
@@ -1250,12 +1251,12 @@ For every operator the precedence and the fixity have to be declared. This decla
 \end{array}\\
 \end{aligned}
 \end{displaymath}
-\captionof{figure}{\label{org8650028}The \emph{integer} in this rule is the precedence of the operator.}
+\captionof{figure}{\label{org4babff1}The \emph{integer} in this rule is the precedence of the operator.}
 \end{figure}
 
 
 \begin{sidewaystable}[htbp]
-\caption{\label{tab:org6be8bd9}The operators included in the prelude with their precedence and fixity \autocite{marlowHaskell2010Language2010}.}
+\caption{\label{tab:orgb85104a}The operators included in the prelude with their precedence and fixity \autocite{marlowHaskell2010Language2010}.}
 \centering
 \begin{tabular}{c|c|c|c}
 \hline
@@ -1276,17 +1277,17 @@ Precedence & Left associative operator & Non-associative operator & Right associ
 \end{sidewaystable}
 
 \subsection{Lambdas}
-\label{sec:org7d30e43}
+\label{sec:orgd21e722}
 
 A lambda expression is a way of defining an \textbf{anonymous function}. Lambdas help developers define functions ``on the fly'' and pass them directly as arguments to another function, making your code concise and expressive. They are especially useful for defining functions that are only used once or so simple they do not need a name. Lambdas are a core feature of functional programming, naturally they are used extensively in Haskell.
 
-A lambda expression is defined using the backslash character \texttt{\textbackslash{}} followed by the arguments, which are separated by spaces, then an arrow \texttt{->} that separates the arguments from the body. The body is a Haskell expression that is evaluated when the lambda is called. For instance, the lambda \mintinline{haskell}{\x -> x + 1} takes an argument \texttt{x} and returns the value of \texttt{x} incremented by 1. The syntax of a lambda expression in Haskell is shown in listing \ref{lst:org5faa16f}.
+A lambda expression is defined using the backslash character \texttt{\textbackslash{}} followed by the arguments, which are separated by spaces, then an arrow \texttt{->} that separates the arguments from the body. The body is a Haskell expression that is evaluated when the lambda is called. For instance, the lambda \mintinline{haskell}{\x -> x + 1} takes an argument \texttt{x} and returns the value of \texttt{x} incremented by 1. The syntax of a lambda expression in Haskell is shown in listing \ref{lst:org63cf445}.
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
 \arg1 arg2 ... argN -> body
 \end{minted}
-\caption{\label{lst:org5faa16f}Lambda syntax}
+\caption{\label{lst:org63cf445}Lambda syntax}
 \end{listing}
 
 \begin{listing}[htbp]
@@ -1302,10 +1303,10 @@ map (\x y -> x + 1) [1, 2, 3]
 -- map (+ 1)  [1, 2, 3]
 > [2, 3, 3]
 \end{minted}
-\caption[higher-order lambda]{\label{lst:orge08cd4d}This lambda takes one argument and returns its value incremented by 1. It is then passed to a higher-order function \texttt{map}}
+\caption[higher-order lambda]{\label{lst:orgdf48596}This lambda takes one argument and returns its value incremented by 1. It is then passed to a higher-order function \texttt{map}}
 \end{listing}
 
-The code in listing \ref{lst:orge08cd4d} uses the \texttt{map} function to apply the lambda to each one of the elements as it iterates the list. The resulting list contains the result of each addition.
+The code in listing \ref{lst:orgdf48596} uses the \texttt{map} function to apply the lambda to each one of the elements as it iterates the list. The resulting list contains the result of each addition.
 
 The \texttt{filter} function selects the elements of a list that satisfy a given condition. Here's an example that demonstrates the use of a lambda that is given to filter to select only the even numbers from a list of integers:
 
@@ -1325,20 +1326,20 @@ Lambda expressions can also be composed to create more complex functions using t
 \end{minted}
 
 \subsection{Monads}
-\label{sec:orgfa1ed0b}
+\label{sec:org23d850f}
 
 \textbf{Monads} are a predominant concept in Haskell that grant developers the ability to represent computations as sequences of steps. A monad is a type class in Haskell that defines two operations: \texttt{return} and \texttt{>{}>{}=} (called ``bind'').
 
 The \texttt{return} operation (also a keyword) takes a value and puts it in a monad. For example, \texttt{return 42} creates a monadic value that contains the int 42. This operation lifts a pure value into a monadic context.
 
-The \texttt{>{}>{}=} operation is employed to connect monadic computations together. It takes a monadic value and a function that returns another monadic value, and applies the function to the value inside the monad. The result is a new monadic value that combines the effects of both computations (listing \ref{lst:orgd44f7d1}).
+The \texttt{>{}>{}=} operation is employed to connect monadic computations together. It takes a monadic value and a function that returns another monadic value, and applies the function to the value inside the monad. The result is a new monadic value that combines the effects of both computations (listing \ref{lst:orgef1ea77}).
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
 Just 3 >>= (\x -> Just (x * 3)) 
 > Just 9
 \end{minted}
-\caption{\label{lst:orgd44f7d1}\texttt{>{}>{}=} operator}
+\caption{\label{lst:orgef1ea77}\texttt{>{}>{}=} operator}
 \end{listing}
 
 The expression \mintinline{haskell}{Just 3 >>= (\x -> Just (x * 3))} applies the function \mintinline{haskell}{(\x -> Just (x * 3))} to the monadic value \texttt{Just 3}, resulting in the monadic value \texttt{Just 9}.
@@ -1355,54 +1356,54 @@ main = do
     name <- getLine
     putStrLn ("Hello, " ++ name ++ "!")
 \end{minted}
-\caption{\label{lst:orgf2ba760}How monads are able to perform I/O in Haskell}
+\caption{\label{lst:orgf4f5e46}How monads are able to perform I/O in Haskell}
 \end{listing}
 
-In listing \ref{lst:orgf2ba760} firstly the \texttt{main} function is defined as an \texttt{IO} computation and the \texttt{putStrLn} function is used to print a message to the console. After that the \texttt{getLine} function is used to read a line of text given from the user as input. The \texttt{name} variable is bound to the result of \texttt{getLine} using the \texttt{<-} operator, which is a shorthand for using \texttt{>{}>{}=}. Finally, there is a second \texttt{putStrLn} call used to print a ``Hello <name>'' to the console.
+In listing \ref{lst:orgf4f5e46} firstly the \texttt{main} function is defined as an \texttt{IO} computation and the \texttt{putStrLn} function is used to print a message to the console. After that the \texttt{getLine} function is used to read a line of text given from the user as input. The \texttt{name} variable is bound to the result of \texttt{getLine} using the \texttt{<-} operator, which is a shorthand for using \texttt{>{}>{}=}. Finally, there is a second \texttt{putStrLn} call used to print a ``Hello <name>'' to the console.
 
 Monads are a powerful abstraction that allow us to express complex computations in modular way. By defining new monads and providing instances for the Monad type class developers are able to create their own abstractions as well as reuse them in different parts of their code.
 
 \subsection{Memory management}
-\label{sec:org9504df4}
+\label{sec:org717d302}
 
 To gain insight into the memory management of Haskell, we analyze the implementation of \texttt{ghc} as a point of reference.
 
 \subsubsection{Garbage collection}
-\label{sec:orge5c751e}
+\label{sec:orgd4de5e4}
 
-\texttt{ghc} uses a ``parallel generational-copying garbage collector'' \autocite{marlowParallelGenerationalcopyingGarbage2008} that traverses the live data of the running program. The two generations are Generation 0 and 1 (figure \ref{fig:org9c03d22}). An illustration of the garbage collection steps of \texttt{ghc} is shown in figure \ref{fig:org5ded579}.
+\texttt{ghc} uses a ``parallel generational-copying garbage collector'' \autocite{marlowParallelGenerationalcopyingGarbage2008} that traverses the live data of the running program. The two generations are Generation 0 and 1 (figure \ref{fig:orgc1b801a}). An illustration of the garbage collection steps of \texttt{ghc} is shown in figure \ref{fig:org2e67140}.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=5cm]{2023-05-24_16-21-37_screenshot.png}
-\caption{\label{fig:org5ded579}A general overview of the steps of garbage collection \autocite{yangHowGrinchStole}}
+\includegraphics[width=5cm]{img/2023-05-24_16-21-37_screenshot.png}
+\caption{\label{fig:org2e67140}A general overview of the steps of garbage collection \autocite{yangHowGrinchStole}}
 \end{figure}
 
 \paragraph*{Newly generated data}
-\label{sec:orgc1ff2aa}
+\label{sec:orgcfd4b87}
 
 When new data are generated, they are stored in the \emph{nursery}, a 512kb memory space \autocite{haskellwikiHaskellHaskellWiki2023}. In every iteration of the garbage collector, each value in Gen 0 that is still used is promoted in Gen 1\footnote{The transition to Gen 1 actually involves two steps: Data that are not to be deallocated remain in Gen 0 during the ``aging'' phase, before being promoted to Gen 1.}.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=8cm]{2023-05-24_15-45-31_screenshot.png}
-\caption{\label{fig:org9c03d22}Two-generation GC of \texttt{ghc} \autocite{channableLessonsManagingHaskell}}
+\includegraphics[width=8cm]{img/2023-05-24_15-45-31_screenshot.png}
+\caption{\label{fig:orgc1b801a}Two-generation GC of \texttt{ghc} \autocite{channableLessonsManagingHaskell}}
 \end{figure}
 
 \paragraph*{Collecting the garbage}
-\label{sec:org41e5ec3}
+\label{sec:orgb1db51c}
 
 The garbage collector initiates a search, starting from the so-called \emph{roots}, meaning the data in the stack and possible global variables. It then moves towards any data that roots point to. These pieces of data are stored in the heap.
 
 \paragraph*{Copying}
-\label{sec:org634224e}
+\label{sec:orgd29aa0a}
 
-The visited pieces of data are then copied in parallel to a newly allocated heap \autocite{marlowParallelGenerationalcopyingGarbage2008} (figure \ref{fig:orgc17df00}). This process is called ``evacuation'' \autocite{yangHowGrinchStole}.
+The visited pieces of data are then copied in parallel to a newly allocated heap \autocite{marlowParallelGenerationalcopyingGarbage2008} (figure \ref{fig:org6d6df1f}). This process is called ``evacuation'' \autocite{yangHowGrinchStole}.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=8cm]{2023-05-24_16-16-17_screenshot.png}
-\caption{\label{fig:orgc17df00}The copy mechanism of the \texttt{ghc} GC \autocite{channableLessonsManagingHaskell}}
+\includegraphics[width=8cm]{img/2023-05-24_16-16-17_screenshot.png}
+\caption{\label{fig:org6d6df1f}The copy mechanism of the \texttt{ghc} GC \autocite{channableLessonsManagingHaskell}}
 \end{figure}
 
 ``Parallel'' means that as the GC searches for the data that the roots are pointing to, the roots are ``migrated'' in the new heap at the same time. The process of finding the data pointed by the roots is called ``scavenging'' \autocite{yangHowGrinchStole}.
@@ -1414,40 +1415,40 @@ The downsides of this copying property of the GC is that the memory needed is do
 This problem is solved by the use of a mark-compact algorithm, that reduces memory needs by rearranging the live data in the same heap \autocite{channableLessonsManagingHaskell}. It is used when there are a lot of live data in the old heap.
 
 \paragraph*{Compact regions}
-\label{sec:org299a960}
+\label{sec:orgae9a5ad}
 
 Another problem of the garbage collection in Haskell is that it is performed successively with the main thread and not in parallel. That means that the process of garbage collection halts the running program and therefore time complexity is afflicted\footnote{From version 8.10 of \texttt{ghc} there exists an alternative GC strategy that allows concurrency \autocite{gamari972ConcurrentGarbage2019}.} \autocite{channableLessonsManagingHaskell}.
 
-The solution to the previous problem is found in \emph{compact regions} \autocite{yangEfficientCommunicationCollection2015}, which were introduced in version 8.2.1 of \texttt{ghc}. They constitute a section of memory that is treated as a separate heap and handled separately. If, while searching, GC encounters data that lives in a compact region, then it stops searching for dead data pointed by it. This function is better illustrated in figure \ref{fig:org6b725fc}. By using compact regions to store big amounts of live data, garbage collection time is greatly reduced. Compact regions are pinned in memory and the GC doesn't alter them in any way \autocite{channableLessonsManagingHaskell}.
+The solution to the previous problem is found in \emph{compact regions} \autocite{yangEfficientCommunicationCollection2015}, which were introduced in version 8.2.1 of \texttt{ghc}. They constitute a section of memory that is treated as a separate heap and handled separately. If, while searching, GC encounters data that lives in a compact region, then it stops searching for dead data pointed by it. This function is better illustrated in figure \ref{fig:orgf3a0e89}. By using compact regions to store big amounts of live data, garbage collection time is greatly reduced. Compact regions are pinned in memory and the GC doesn't alter them in any way \autocite{channableLessonsManagingHaskell}.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=8cm]{2023-05-24_16-44-12_screenshot.png}
-\caption{\label{fig:org6b725fc}Compact regions in GC \autocite{channableLessonsManagingHaskell}. When the GC reaches c0, it stops searching for dead data in anything that is pointed by it. As a result, data such as c4 is kept, even though nothing points to it.}
+\includegraphics[width=8cm]{img/2023-05-24_16-44-12_screenshot.png}
+\caption{\label{fig:orgf3a0e89}Compact regions in GC \autocite{channableLessonsManagingHaskell}. When the GC reaches c0, it stops searching for dead data in anything that is pointed by it. As a result, data such as c4 is kept, even though nothing points to it.}
 \end{figure}
 
 \paragraph*{Mutability and garbage collection}
-\label{sec:orgc188af7}
+\label{sec:org7b37e07}
 
 Mutability is one of the features of Haskell that negatively influences GC time. Mutability gives data the ability to point to ``future'' objects, meaning data that have not yet being created. This means that a live object in Gen 0 can depend in an object of Gen 1 \autocite{channableLessonsManagingHaskell}.
 
 \subsection{Namespaces}
-\label{sec:org060db5f}
+\label{sec:org8840b23}
 
 \subsubsection{Definition}
-\label{sec:orgc710bf6}
+\label{sec:org4a53c1a}
 
 A namespace is group of related elements that each one of them has a unique name so it can be easily identified\footnote{\url{https://techterms.com/definition/namespace}}.
 
 \subsubsection{Namespaces in Haskell}
-\label{sec:org5c11720}
+\label{sec:org93c1dbe}
 
 In Haskell there are 6 kinds of names that can be grouped in broader categories as follows: Firstly, Values. They consist of variables and constructors. Second, Entities related to file system. They consist of type variables, type constructors and type classes. Third and last, Modules. They consist of module names.
 
 Haskell has just 2 naming constraints: First, names for variables and type variables are the only names that start with underscore or a lowercase letter. The names for the other categories are not allowed to start with these characters. Second, a class and a type constructor cannot use the same identifier as a name in the same scope \autocite{marlowHaskell2010Language2010}.
 
 \subsection{Parallelism and Concurency}
-\label{sec:org9a750c1}
+\label{sec:org7e0276f}
 
 \textbf{Parallelism} and \textbf{Concurrency} are two different concepts in Haskell that enable the execution of tasks concurrently or in parallel, allowing for increased performance and more efficient utilization of hardware resources. Haskell provides exceptional support for both of them.
 
@@ -1470,7 +1471,7 @@ Software Transactional Memory (STM) is a powerful mechanism for managing shared 
 Haskell enables developers to write concurrent programs that are concise, scalable, and robust.
 
 \subsection{Metaprogramming}
-\label{sec:org85271b1}
+\label{sec:org6ca87c5}
 
 \textbf{Metaprogramming} in Haskell refers to writing programs that manipulate other programs as data. It allows programmers to generate, transform, and analyze Haskell code.
 
@@ -1485,12 +1486,12 @@ Haskell's strong type system enables type-level programming, writing code at the
 Metaprogramming in Haskell serves various purposes, such as code generation to automate repetitive or boilerplate code, creating domain-specific languages for concise and expressive abstractions, transforming programs in order to be optimized and adaptive to specific requirements as well as enabling generic programming for code reuse across different data types. While metaprogramming can be a potent technique, it must be based upon a deep understanding of Haskell. Extreme care is needed, in order to maintain code clarity and readability when using metaprogramming approaches.
 
 \subsection{Object-Oriented Properties of Haskell}
-\label{sec:orgf3918b0}
+\label{sec:orgf762ae2}
 
 Haskell is a functional language and as a result it does not provide object oriented functionalities by default. However, there are some tools given by the language that can be used to encode object oriented features in it \autocites{frankObjectorientationHaskellExploring2013}[][]{kiselyovHaskellOverlookedObject2005}. A sample representation of two fundamental entities of Object Oriented Programming follows: Classes and Objects.
 
 \subsubsection{Classes}
-\label{sec:org3715bd8}
+\label{sec:org6f0923e}
 
 A class can be mapped to an abstract Haskell type. A constructor can be defined as well, as it is supported by Haskell. Lastly, the user can define the needed functions that use that type \autocite{frankObjectorientationHaskellExploring2013}.
 \begin{listing}[htbp]
@@ -1501,7 +1502,7 @@ class C {
     int m(bool b, int x);  /*Constructor*/
 }
 \end{minted}
-\caption{\label{lst:org2ec89f7}A class definition in C\#}
+\caption{\label{lst:org80b0577}A class definition in C\#}
 \end{listing}
 
 \begin{listing}[htbp]
@@ -1511,26 +1512,26 @@ newC :: Int -> IO C
 s    :: Int -> IO Int
 m    :: (Bool, Int) -> C -> IO Int
 \end{minted}
-\caption{The equivalent ``class'' in Haskell (listing \ref{lst:org2ec89f7})}
+\caption{The equivalent ``class'' in Haskell (listing \ref{lst:org80b0577})}
 \end{listing}
 
 \subsubsection{Objects}
-\label{sec:org25fe483}
+\label{sec:org3c37368}
 
 The objects of a class can me modeled as containers (data structures) that contain the data of the class. In Haskell the user has to define the data structure in two phases: data declaration and a class declaration for its the methods \autocite{frankObjectorientationHaskellExploring2013}.
 
 \subsubsection{Conclusion}
-\label{sec:org2b25cb8}
+\label{sec:org6405301}
 
 To conclude, Haskell does not provide natively Object Oriented functionalities, but for the most of them, there is an implementation in this language.
 
 \subsection{Classes}
-\label{sec:orgfab32d6}
+\label{sec:org782020b}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{2023-05-25_13-28-35_screenshot.png}
-\caption{\label{fig:org6eaafae}Classes in Haskell}
+\includegraphics[width=.9\linewidth]{img/2023-05-25_13-28-35_screenshot.png}
+\caption{\label{fig:org1000a8b}Classes in Haskell}
 \end{figure}
 
 In Haskell a new class can be defined alongside with its operations through the process of class declaration. The syntax \mintinline{haskell}{class cx=> MyClass tv where dec} is a way to declare a class. \texttt{MyClass} is the name of the new class, and \texttt{tv} is a type variable that is used only within the class definition. Also The \texttt{cx} part of the declaration specifies any superclasses of \texttt{MyClass}. Finally, the \texttt{dec} part of the declaration specifies the methods and properties that belong to the class \autocite[chapter 4.3]{marlowHaskell2010Language2010}.
@@ -1541,7 +1542,7 @@ In Haskell, it is known that types like variables, functions, data types etc. ha
 
 The same rule implies also between classes and their bindings. A compilation error will happen when there are two or more names with the same identifier in the same namespace. So the following is the signature form of a top level class method: \texttt{fn ::} \(\forall x, y. (Cx, cyz) \rightarrow r\).
 
-Type classes can be used to abstract over container types, and how class methods can have polymorphic type signatures that may involve additional type variables and constraints beyond the main type parameter of the class (listing \ref{lst:org49d67fa}).
+Type classes can be used to abstract over container types, and how class methods can have polymorphic type signatures that may involve additional type variables and constraints beyond the main type parameter of the class (listing \ref{lst:org117d95f}).
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
@@ -1549,29 +1550,29 @@ class Container c where insert :: a -> ca -> c a
 remove :: a -> ca -> c a
 size :: c a -> Int
 \end{minted}
-\caption{\label{lst:org49d67fa}Polymorphic type signatures}
+\caption{\label{lst:org117d95f}Polymorphic type signatures}
 \end{listing}
 
 Also, fixity declarations are used to specify the precedence and associativity of operators \autocite{marlowHaskell2010Language2010}. It is possible that the \texttt{dec} declaration from above has for class methods fixity declarations, allowing to specify the precedence and associativity of those methods.
 
-Finally, in Haskell a default class method is a method that provides a default implementation. It is offered for a class method in case it is not defined explicitly in an instance declaration. In Haskell, a class declaration can have a \texttt{where} keyword, which contains the method signatures for the class methods. A class declaration may also not have this \texttt{where} keyword. The second case is used in order to merge many classes to one bigger class that inherits the methods of the smaller ones (listing \ref{lst:org1cfcab0}).
+Finally, in Haskell a default class method is a method that provides a default implementation. It is offered for a class method in case it is not defined explicitly in an instance declaration. In Haskell, a class declaration can have a \texttt{where} keyword, which contains the method signatures for the class methods. A class declaration may also not have this \texttt{where} keyword. The second case is used in order to merge many classes to one bigger class that inherits the methods of the smaller ones (listing \ref{lst:orgc164bc8}).
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
 class (Ord a, Num a) => OrderedNum a where
 absSquared :: a -> a
 \end{minted}
-\caption[Class inheritance]{\label{lst:org1cfcab0}Class inheritance.In this example, the \texttt{OrderedNum} class combines the \texttt{Ord} and \texttt{Num} classes and defines a new method \texttt{absSquared} that is specific to \texttt{OrderedNum} instances.}
+\caption[Class inheritance]{\label{lst:orgc164bc8}Class inheritance.In this example, the \texttt{OrderedNum} class combines the \texttt{Ord} and \texttt{Num} classes and defines a new method \texttt{absSquared} that is specific to \texttt{OrderedNum} instances.}
 \end{listing}
 
 Becoming an instance of a subclass is not guaranteed. Mainly if a type is an instance of the superclasses. To make a type an instance of such a subclass, then an explicit instance definition without a \texttt{where} must be given \autocite{marlowHaskell2010Language2010}.
 
 \subsubsection{Instance Declaration}
-\label{sec:org07afaa2}
+\label{sec:orgbc38d21}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{2023-05-25_18-46-02_screenshot.png}
+\includegraphics[width=.9\linewidth]{img/2023-05-25_18-46-02_screenshot.png}
 \caption{Instance declarations}
 \end{figure}
 
@@ -1631,7 +1632,7 @@ instance (Eq b, Show b) => Animal [b] where ...
 The program wouldn't be acceptable. In order to be acceptable then for the second instance it is required that the \texttt{[b]} has to be instance of \texttt{Mammal}, including the fact that this should happen including \texttt{Eq b} and \texttt{Show b}. However in this case it is not true.
 
 \subsubsection{Derived Instance}
-\label{sec:org254545c}
+\label{sec:orge939f29}
 
 A deriving keyword can be included when defining a data type or a new type. This keyword makes the following difference: basically this move gives permission for a automatic creation of instance declarations for this type. This happens in specific classes. It must be noted that the generated instances have identical limitations as other instances (user-defined). The derivation of a class can happen when instances for the class’s superclass are present, and they actually do exist. It can happen through the definition of a distinct instance declaration or by adding the superclass in the clause that the derivation happens.
 
@@ -1642,7 +1643,7 @@ Only for a specific set of classes can derived instances be permitted (\texttt{E
 If a class name is included in a deriving form and the generation of an instance declaration cannot happen, then there’s an error \autocite{marlowHaskell2010Language2010}. Additionally, if a class is both distinctly declared and derived, this will also result in an error.
 
 \subsubsection{Defaults, ambiguous types}
-\label{sec:org6c3e862}
+\label{sec:org6338d2b}
 
 top level declaration \(\rightarrow \text{default} (\text{just}\_\text{a}\_\text{type}_{\text{first}}, \dots, \text{just}\_\text{a}\_\text{type}_{\text{last}})\).
 
@@ -1704,7 +1705,7 @@ A defaultable variable can be substituted by the type that is mentioned as first
 It is also worth noting that each module can be used one declaration that is single. Also its scope is bounded to that module. The cases that default types are assumed (specifically \texttt{Integer}, \texttt{Double}) are the cases where a declaration, which is default, is not explicitly given in.
 
 \subsection{(Trans)portability}
-\label{sec:orgdff3b5e}
+\label{sec:org41b7ceb}
 
 The implementation of Haskell, also known as \texttt{ghc}, is supported by a variety of platforms. These platforms are divided into three tiers, as indicated by the \texttt{ghc} GitLab repository's wiki \autocite{gamariPlatformsGlasgowHaskell2023}.
 
@@ -1725,21 +1726,21 @@ Finally, tier 3 includes platforms such as iOS, AIX, and the RISC-V architecture
 \end{itemize}
 
 \section{Examples and code}
-\label{sec:orge847fb7}
+\label{sec:org78bd5c5}
 
 \subsection{The ``Hello, World!'' program in Haskell:}
-\label{sec:org8c367e4}
+\label{sec:orgbaa01fb}
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
 main = putStrLn "Hello, World!"
 \end{minted}
-\caption{\label{lst:orgb0ba6a3}``Hello, World!'' program}
+\caption{\label{lst:org1b7b9dc}``Hello, World!'' program}
 \end{listing}
 
-The program in listing \ref{lst:orgb0ba6a3} defines a main function that uses the \texttt{putStrLn} function to print the string \texttt{Hello, World!} to the console.
+The program in listing \ref{lst:org1b7b9dc} defines a main function that uses the \texttt{putStrLn} function to print the string \texttt{Hello, World!} to the console.
 
-To run this program, you can save it in a file with a \texttt{.hs} extension. Then compile and execute it from the command line using the commands shown in listing \ref{lst:org26fac96}.
+To run this program, you can save it in a file with a \texttt{.hs} extension. Then compile and execute it from the command line using the commands shown in listing \ref{lst:orgd545316}.
 
 \begin{listing}[htbp]
 \begin{minted}[]{shell}
@@ -1748,15 +1749,15 @@ $ ./hello
 Hello, World!
 $
 \end{minted}
-\caption{\label{lst:org26fac96}How to compile and run a program with the \texttt{ghc} compiler}
+\caption{\label{lst:orgd545316}How to compile and run a program with the \texttt{ghc} compiler}
 \end{listing}
 
 The \emph{Hello World} program is traditionally the first program we write when learning a new programming language. In the world of functional programming we need something different to showcase the power of Haskell.
 
 \subsubsection{Compilation process of the \texttt{ghc} compiler}
-\label{sec:orgbc87fe6}
+\label{sec:org4d1ceab}
 
-After you compile a Haskell program there will be 3 new files (listing \ref{lst:org9aa5757}).
+After you compile a Haskell program there will be 3 new files (listing \ref{lst:orgbd79c96}).
 
 \begin{listing}[htbp]
 \begin{minted}[]{shell}
@@ -1766,7 +1767,7 @@ Linking HelloWorld ...
 $ ls
 HelloWorld HelloWorld.hi HelloWorld.hs HelloWorld.o
 \end{minted}
-\caption{\label{lst:org9aa5757}Files generated by \texttt{ghc}}
+\caption{\label{lst:orgbd79c96}Files generated by \texttt{ghc}}
 \end{listing}
 
 The \texttt{HelloWorld} file is the executable and the \texttt{HelloWorld.o} is the object file. The \texttt{HelloWorld.hi} file is an \emph{interface file}. It contains information about the object file that \texttt{ghc} would need if you were to compile other modules, so that it would be able to link against that object file (said information cannot be stored in a standard object file).
@@ -1774,7 +1775,7 @@ The \texttt{HelloWorld} file is the executable and the \texttt{HelloWorld.o} is 
 You could say that the interface file is the equivalent of C's header files, only these are generated by \texttt{ghc} from the original Haskell source. Thus, the interface file is used when \texttt{ghc} compiles other modules, and the object file is used when linking all modules together to produce the executable. It is safe to delete the \texttt{.hi} and \texttt{.o} files once the executable is successfully generated, but keeping them helps in rebuilding and recompilation times after small changes.
 
 \subsection{Factorials implementation in Haskell}
-\label{sec:org1c9eedb}
+\label{sec:orga7eceb1}
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
@@ -1790,10 +1791,10 @@ main = do
     putStrLn ("The factorial of " ++ show n ++
                " is " ++ show (factorial n))
 \end{minted}
-\caption{\label{lst:org2fb5530}The program takes the number \texttt{n} as input, calculates and prints \texttt{n}!}
+\caption{\label{lst:orgd284759}The program takes the number \texttt{n} as input, calculates and prints \texttt{n}!}
 \end{listing}
 
-The program in the listing \ref{lst:org2fb5530} defines a main function that prompts the user to enter a number, reads the number from the console using the \texttt{readLn} function, computes its factorial using the \texttt{factorial} function, and prints the result to the console using the \texttt{putStrLn} function.
+The program in the listing \ref{lst:orgd284759} defines a main function that prompts the user to enter a number, reads the number from the console using the \texttt{readLn} function, computes its factorial using the \texttt{factorial} function, and prints the result to the console using the \texttt{putStrLn} function.
 
 \begin{listing}[htbp]
 \begin{minted}[]{shell}
@@ -1805,11 +1806,11 @@ Enter a number:
 5
 The factorial of 5 is 120
 \end{minted}
-\caption{Executing listing \ref{lst:org2fb5530}}
+\caption{Executing listing \ref{lst:orgd284759}}
 \end{listing}
 
 \subsection{Lambda functions}
-\label{sec:orgc4216d9}
+\label{sec:org48098a3}
 
 Real use of lamda functions, acting on lists.
 
@@ -1843,7 +1844,7 @@ main = do
     putStrLn $ "Max element of list is " ++ show (maximum myList)
     putStrLn $ "Min element of list is " ++ show (minimum myList)
 \end{minted}
-\caption{\label{lst:org40c7360}Sum and product of an integer list}
+\caption{\label{lst:org9f85ab5}Sum and product of an integer list}
 \end{listing}
 
 \begin{listing}[htbp]
@@ -1857,25 +1858,25 @@ The product of list is 3628800
 Max element of list is 10
 Min element of list is 1
 \end{minted}
-\caption{Result of listing \ref{lst:org40c7360}}
+\caption{Result of listing \ref{lst:org9f85ab5}}
 \end{listing}
 
-As you can see in listing \ref{lst:org40c7360}, Haskell provides a really easy way to create an new array with integers ranging from \texttt{a} to \texttt{b} (\texttt{b} included). Even high level languages like Python do not provide a similar feature. You can exclude \texttt{b} using the \texttt{..:} operator. These lambdas were implemented for demonstration purposes, Haskell already provides lambdas like \texttt{sum}, \texttt{product}, \texttt{maximum} and \texttt{minimum}.
+As you can see in listing \ref{lst:org9f85ab5}, Haskell provides a really easy way to create an new array with integers ranging from \texttt{a} to \texttt{b} (\texttt{b} included). Even high level languages like Python do not provide a similar feature. You can exclude \texttt{b} using the \texttt{..:} operator. These lambdas were implemented for demonstration purposes, Haskell already provides lambdas like \texttt{sum}, \texttt{product}, \texttt{maximum} and \texttt{minimum}.
 
 The main function then creates a list called \texttt{myList}, calls the \texttt{sumList} function to calculate its sum using \texttt{foldr} and then prints out the result using the \texttt{putStrLn} function. The same thing happens for the \texttt{productList} function.
 
 Note that we use the \texttt{show} function to convert the input list and the resulting sum to strings so that we can print them out using \texttt{putStrLn}.
 
 \subsubsection{The \texttt{foldr} function}
-\label{sec:orgeebaa12}
+\label{sec:org57c5e7e}
 
-In Haskell, \texttt{foldr} is a higher-order function that takes a binary function and an initial accumulator value and applies the binary function repeatedly to the elements of a list, starting from the rightmost element, and accumulating the result in the accumulator value. The type signature of \texttt{foldr} is shown in listing \ref{lst:org7a3384b}.
+In Haskell, \texttt{foldr} is a higher-order function that takes a binary function and an initial accumulator value and applies the binary function repeatedly to the elements of a list, starting from the rightmost element, and accumulating the result in the accumulator value. The type signature of \texttt{foldr} is shown in listing \ref{lst:org931f744}.
 
 \begin{listing}[htbp]
 \begin{minted}[]{haskell}
 foldr :: (a -> b -> b) -> b -> [a] -> b
 \end{minted}
-\caption{\label{lst:org7a3384b}The \texttt{foldr} type signature}
+\caption{\label{lst:org931f744}The \texttt{foldr} type signature}
 \end{listing}
 
 \begin{itemize}
@@ -1885,9 +1886,9 @@ foldr :: (a -> b -> b) -> b -> [a] -> b
 \end{itemize}
 
 \subsection{The \texttt{GHCi} Interpreter}
-\label{sec:orgfa638ea}
+\label{sec:orgeace5e5}
 
-To start a \texttt{GHCi} session use the command \texttt{ghci} (listing \ref{lst:org3fc0025}).
+To start a \texttt{GHCi} session use the command \texttt{ghci} (listing \ref{lst:org485301f}).
 
 \begin{listing}[H]
 \begin{minted}[]{haskell}
@@ -1895,7 +1896,7 @@ $ ghci
 GHCi, version 9.2.7: https://www.haskell.org/ghc/  :? for help
 ghci>
 \end{minted}
-\caption{\label{lst:org3fc0025}Using the \texttt{ghci} interpreter.}
+\caption{\label{lst:org485301f}Using the \texttt{ghci} interpreter.}
 \end{listing}
 
 Any \textbf{Haskell expression} can be typed at the prompt. The \texttt{ghci} interpreter will output the result.
@@ -1950,7 +1951,7 @@ ghci>
 \end{minted}
 
 \section{Conclusion}
-\label{sec:orgd89bea3}
+\label{sec:org8053550}
 
 Haskell is a computer programming language renowned for its functional paradigm, type system, and purity, which distinguishes it from other programming languages \autocite{marlowParallelConcurrentProgramming2013}. Haskell has a rich and storied history that reflects an ambition to create a smarter, more efficient, and easier-to-use functional programming language. It has lived up to this ambition, continuing to evolve and gain popularity in various industries, such as finance, web development, and academia, where its distinctive features are especially valued.
 

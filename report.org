@@ -4,10 +4,11 @@
 #+OPTIONS: num:3 H:t toc:nil author:t date:t
 #+STARTUP: overview nolatexpreview
 :LATEX_PROPERTIES:
-#+LATEX_COMPILER: pdflatex
 #+LATEX_CLASS: article
 # #+LATEX_CLASS_OPTIONS: [9pt, a4paper, titlepage, twoside, twocolumn]
 #+LATEX_CLASS_OPTIONS: [a4paper, titlepage, twoside]
+
+#+BIBLIOGRAPHY: bibliography.bib
 
 #+LATEX_HEADER: \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
@@ -38,12 +39,6 @@
 
 #+LATEX_HEADER_EXTRA: \usepackage{lmodern}
 #+LATEX_HEADER_EXTRA: \usepackage{tabularx}
-
-# #+LATEX_HEADER: \usepackage{imakeidx}
-# #+LATEX_HEADER: \makeindex[intoc]
-
-# #+LATEX_HEADER: \let\oldindex\index
-# #+LATEX_HEADER: \renewcommand{\index}[1]{\oldindex{#1}\marginpar{\strut\footnotesize\color{blue}#1}}
 :END:
 
 * Roman numbering :ignore:
