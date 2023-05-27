@@ -82,7 +82,7 @@ That's not to say functional programming was new. In fact, it had been around fo
 
   John McCarthy created Lisp [cite:@mccarthyRecursiveFunctionsSymbolic1960], which was the pioneering high-level functional programming language at the time, during his time at the Massachusetts Institute of Technology in the 1950s. The definition of Lisp functions involved the use of Alonzo Church's lambda notation (see [[*Functional programming and lambda calculus]]), which was expanded to enable the creation of recursive functions. Lisp was the first functional programming language to present several new paradigmatic features. Lisp merged them, and as a result enabled the support of multiple programming styles. Subsequent dialects of Lisp --- e.g Common Lisp, Racket, Scheme and Clojure [cite:@steeleCOMMONLISPLanguage1984;@felleisenRacketManifesto2015;@abelsonRevisedReportAlgorithmic1998;@hickeyHistoryClojure2020;] --- aimed to streamline and rationalize Lisp by emphasizing a purely functional foundation.
 
-  At the same time period another functional programming language was created with the name Information Processing Language (IPL) from Allen Newell, Cliff Shaw and Herbert A. Simon  [cite:@newellIntroductionInformationProcessing1960]. IPL was created with the primary purpose of handling lists of symbols, enabling dynamic memory allocation and multitasking. It was the inventor of the concept of list processing.
+  At the same time period another functional programming language was created with the name Information Processing Language (IPL) from Allen Newell, Cliff Shaw and Herbert A. Simon [cite:@newellIntroductionInformationProcessing1960]. IPL was created with the primary purpose of handling lists of symbols, enabling dynamic memory allocation and multitasking. It was the inventor of the concept of list processing.
 
 + 1960's
   
@@ -106,13 +106,13 @@ That's not to say functional programming was new. In fact, it had been around fo
 
 **** Functional programming and lambda calculus
 
-In 1932 and 1933, mathematician Alonzo Church published two papers both titled "A Set of Postulates for the Foundation of Logic" [cite:@churchSetPostulatesFoundation1932;@churchSetPostulatesFoundation1933]. In those papers a new system of mathematical logic was introduced that centered around functions, with the name of /lambda calculus/. This invention had its application in mathematical logic. It was employed with the aim of representing calculations through function generalization and utilization. Also it is using linkage, between variables and variable replacement. After the invention of the Lambda Calculus many experts tried to get the most use out of it, so Functional programming was invented as a way of practical application of the Lambda Calculus, in order to benefit from this mathematical foundation's uses.
+In 1932 and 1933, mathematician Alonzo Church published two papers both titled "A Set of Postulates for the Foundation of Logic" [cite:@churchSetPostulatesFoundation1932;@churchSetPostulatesFoundation1933]. In those papers a new formal system of mathematical logic was introduced that centered around the notion of functions, with the name of /lambda calculus/. The purpose of using this framework was to represent calculation through function generalization and application, using binding between variables and variable substitution. Functional programming was invented as a practical application of lambda calculus, in order to benefit from its many uses.
 
-It is known that lambda calculus was the basis that a lot of functional programming languages were based on . Specifically it gives a foundation for comprehending the nature of functions and it also provides, the ability of combining many functions together to create a new function (also known as function composition). Functional programming employs functions as the essential units for constructing programs, and lambda calculus furnishes a means to precisely declare and contemplate these functions.  [cite:@pandaquestsRelationshipLambdaCalculus2023].
+It is known that lambda calculus was the basis for a lot of functional programming languages. Specifically, it gives a foundation for comprehending the nature of functions and it also provides the ability of combining many functions together to create a new function (also known as function composition). Functional programming employs functions as the essential units for constructing programs, and lambda calculus furnishes a means to precisely declare and contemplate these functions [cite:@pandaquestsRelationshipLambdaCalculus2023].
 
-Also lambda calculus characterizes a function as a statement that accepts an input and generates an output. Τheir definition is based on lambda abstractions. Lambda abstractions are nameless functions that connect a variable to a calculation. Also they are employed to represent functions. 
+Also, lambda calculus characterizes a function as a statement that accepts an input and generates an output. Their definition is based on lambda abstractions. Lambda abstractions are nameless functions that connect a variable to a calculation. Also they are employed to represent functions. 
 
-Many languages such as Haskell were influenced by the concept of lambda calculus. The former offers tangible realizations of the concepts introduced by the latter. For instance, using lambda expressions you can create functions and you can combine functions through higher-order functions.
+Many languages such as Haskell were directly influenced by lambda calculus. The former offers tangible realizations of the concepts introduced by the latter. For instance, using lambda expressions you can create functions and you can combine functions through higher-order functions.
 
 **** The /lazy/ craze
 
@@ -128,11 +128,12 @@ The year is 1987. The biennial FPCA conference is being held in Portland, Oregon
 
 **** Haskell and Miranda
  
-At the time the committee hadn't given a name for the language yet . Also not many talks for the structure of the language had happened. The result of this gathering was that the most feasible approach to get started with the creation of a language , was to modify a language that already existed according to the committee's needs .
+At the time the committee hadn't yet given a name to the language. Also, not many talks for the structure of the
+language had happened. The result of this gathering was that the most feasible approach to get started with the creation of a language was to modify a language that already existed according to the committee's needs .
 
-The programming language Miranda [cite:@turnerMirandaNonstrictFunctional1985] which was created by David Turner, came out as the most suitable option due to its efficiency . As Turner was absent from the conference, the committee decided that it would be fair to ask for his permission to use his language as the foundation of the language they were about to create . Although many talks were held for that reason the creator of Miranda did not give his permission . 
+The programming language Miranda [cite:@turnerMirandaNonstrictFunctional1985] which was created by David Turner, came out as the most suitable option due to its efficiency. As Turner was absent from the conference, the committee decided that it would be fair to ask for his permission to use his language as the foundation of the language they were about to create. Although many talks were held for that reason the creator of Miranda did not give his permission. 
 
-The committee's objective was to develop a language that could serve various goals , including researching , allowing unrestricted extension, adjustment, and distribution of the language. On the other hand , the creator of Mirnada was dedicated to uphold a unified language model .  [cite:@hudakHistoryHaskellBeing2007].  He expressed his preference for avoiding the creation of another form of his language and told the committee to create a language different of his . So the committee had to make a new language from the scratch . Although , the fact that the committee wasn't allowed to use features from the Miranda programming language , this made them take another way in order to construct the language , because of that , the feature named "type classes" was cultivated. Except from the different ways Haskell , and Miranda were created , the committee responsible for creating Haskell , was motivated from the Miranda programming language .
+The committee's objective was to develop a language that could serve various purposes, including researching language features, allowing unrestricted extension, modification, implementation, and distribution of the language. On the other hand, Turner had a strong dedication to upholding a unified language standard and didn't want multiple flavors of Miranda to exist [cite:@hudakHistoryHaskellBeing2007]. He expressed his preference for avoiding the creation of another Miranda and asked the committee to make a new language different enough to avoid confusion. So the committee had to make a new language from scratch. Although, the fact that the committee wasn't allowed to use features from Miranda made them take another approach in order to design the language. Except from the different ways Haskell and Miranda were created, the committee was greatly influenced by the latter.
 
 After the previous incident, the committee used the mailing list =fplangc@cs.ucl.ac.uk= to discuss what they would do next and used the title "FPlang Committee" as a placeholder till a name wad found [cite:@hudakHistoryHaskellBeing2007].
 
@@ -146,10 +147,10 @@ The first meeting was held at Yale during 1988. There, a clear list of Haskell's
 
 ***** Haskell's name
 
-During a meeting to decide on a name for the language, the members of the developing team were encouraged to suggest names . The list included names such as "Semla", "Vivaldi", "Mozart", and more .  After converastion each member was given the opportunity to mark a name they didn't prefer. Eventually, only one name remained, and it was decided that the language would be named after the mathematician Haskell B. Curry. Specifically the creators decided to keep the name of "Haskell" as the final name . [cite:@hudakHistoryHaskellBeing2007].
+During the meeting, the members of the development team were encouraged to suggest names. The list included names such as "Semla", "Vivaldi", "Mozart", and more. After conversation each member was given the opportunity to mark a name they didn't prefer. Eventually, only one name remained, and it was decided that the language would be named after the mathematician Haskell B. Curry. Specifically the creators decided to keep the name of "Haskell" as the final name [cite:@hudakHistoryHaskellBeing2007].
 
-On that particular evening of deciding the name of the language , the creators came to the fact that they would have an overabundance of comical references to curry at their disposal. [cite:@hudakHistoryHaskellBeing2007] . Although there were various amusing jokes that could be made such as the spice carry, they were prevented from using it beacuse of the actor's Tim Curry's name . Tim Curry was well-known that period . Especially for his part in the /"Rocky Horror Picture Show"/, so they opted to steer clear of this direction. After additional deliberation the day after , they ultimately opted for the moniker "Haskell" for their novel programming langu
-age. They later discovered that this name was  misheard or misunderstood  with languages such as Pascal , and that would bring a lot of confusion.
+At first the chosen name was "Curry". But after a while, the committee came to the realization that they would have an overabundance of comical references regarding the name [cite:@hudakHistoryHaskellBeing2007]. Although there were various amusing jokes that could be made such as the spice carry, that is used in cooking, they were genuinely unsettled by the possibility of using Tim Curry as a way to make fun of the language.
+As Jon Fairbairn's abstract machine was referred to as TIM, and Tim Curry was well-known for his role in the /"Rocky Horror Picture Show"/, so they opted to steer clear of this direction. After additional deliberation the following day, they ultimately opted for the moniker "Haskell" for their novel programming language.
 
 ***** Haskell's goals
 
@@ -165,7 +166,7 @@ At first the committee had to clearly set the purposes of the language. January 
 
 5. The language's concepts should be founded upon commonly accepted ideas and principles.
 
-6. The language should aim to minimize superfluous discrepancies among functional programming languages.
+6. The language should aim to minimize superfluous discrepancies among functional programming languages. To achieve this, the committee's preliminary decision was to derive it from an already established language, namely OL.
 
 The last two goals were proof that the original vision of Haskell was to rely on battle-tested methods and patterns and only unite the separated functional programming world. But this vision was short-lived, since neither OL was used as a base and Haskell introduced a myriad of new concepts in programming.
 
@@ -243,7 +244,7 @@ Cardano benefits from the wide range of Haskell libraries and tools that are ope
 
 Hackage is a key part of Haskell's ecosystem and provides a convenient way for Haskell developers to find and share code [cite:@hackageHackage2023]. Hackage is a central repository of open-source Haskell packages, similar to other package managers such as PyPi for Python or npm for JavaScript.
 
-Hackage contains thousands of Haskell packages, each one provides a set of modules and functions that can be used in other projects.  Packages are identified by a unique name and version number, and are organized into categories such as "Web", "Database", "Parsing", and so on. It provides a way to effortlessly download and install Haskell packages, including their dependencies. Developers can upload their own packages, making them available to everybody. Uploading a package to Hackage involves creating a Cabal (see [[*Cabal]]) file that describes the package and its dependencies, and then using Cabal to upload the package. Hackage uses a versioning system that allows multiple versions of a package to coexist. Thanks to the versioning system, developers can update their packages without breaking existing projects that depend on them.
+Hackage contains thousands of Haskell packages, each one provides a set of modules and functions that can be used in other projects. Packages are identified by a unique name and version number, and are organized into categories such as "Web", "Database", "Parsing", and so on. It provides a way to effortlessly download and install Haskell packages, including their dependencies. Developers can upload their own packages, making them available to everybody. Uploading a package to Hackage involves creating a Cabal (see [[*Cabal]]) file that describes the package and its dependencies, and then using Cabal to upload the package. Hackage uses a versioning system that allows multiple versions of a package to coexist. Thanks to the versioning system, developers can update their packages without breaking existing projects that depend on them.
 
 *** Haddock
 
@@ -340,7 +341,7 @@ Stack is relatively easy to set up and use. It is easy to get started with a new
 
 *** Hledger
 
-Hledger is a command-line tool for double-entry accounting, written in Haskell. It is part of the larger Plain Text Accounting paradigm[fn:2]. It is cross platform. It can import from and export to various data formats such as CSV or TSV. Also, it has multiple choices for a User Interface: It can be used from the command-line, a web browser, on mobile, and has various edior/IDE plugins [cite:@michaelHledger2023].
+Hledger is a command-line tool for double-entry accounting, written in Haskell. It is part of the larger Plain Text Accounting paradigm[fn:2]. It is cross platform. It can import from and export to various data formats such as CSV or TSV. Also, it has multiple choices for a User Interface: It can be used from the command-line, a web browser, on mobile, and has various editor/IDE plugins [cite:@michaelHledger2023].
 
 *** Pandoc
 
@@ -350,7 +351,7 @@ Pandoc is a Haskell library used for markup conversion. It is a powerful command
 
 ** Control Structures
 
-Usually functional languages like Haskell do not have constructs to change the execution path or to provide loops. Languages of this category try to follow mathematical notation for function definition and as a result they provide multiple definitions of the same function to cover different input cases. This approach requires that the language has pattern maching capabilities. However, some functional languages like Haskell provide some control constructs to facilitate programmers' work.
+Usually functional languages like Haskell do not have constructs to change the execution path or to provide loops. Languages of this category try to follow mathematical notation for function definition and as a result they provide multiple definitions of the same function to cover different input cases. This approach requires that the language has pattern matching capabilities. However, some functional languages like Haskell provide some control constructs to facilitate programmers' work.
 
 *** Pattern Matching
 
@@ -400,7 +401,7 @@ factorial n
 
 **** Definition
 
-A /Monad/ is a subclass of Applicative class that is defined by the following three things  [cite:@wikibooksHaskellUnderstandingMonads2021]:
+A /Monad/ is a subclass of Applicative class that is defined by the following three things [cite:@wikibooksHaskellUnderstandingMonads2021]:
 
 1. A type constructor
 2. A return function
@@ -454,7 +455,7 @@ sumTwoNumbers = do
 
 *** Recursion
 
-Haskell does not have a control structure to achieve repetition. This feature is provided using recursion, which makes it a fundamental and very powerful tool for working with lists and other similar structures. The repetition is achieved using recursive functions that call themseslves with modified arguments, until they reach the defined base case [cite:@kremerCPSC449Programming2015].
+Haskell does not have a control structure to achieve repetition. This feature is provided using recursion, which makes it a fundamental and very powerful tool for working with lists and other similar structures. The repetition is achieved using recursive functions that call themselves with modified arguments, until they reach the defined base case [cite:@kremerCPSC449Programming2015].
 
 #+caption: Haskell program to find the factorial of a number using recursion
 #+begin_src haskell
@@ -484,11 +485,11 @@ Operational semantics in Haskell define how a program is examined, and lazy eval
 
 *** Rules
 
-Identifiers in Haskell start by a letter that can be followed by any combination of zero or more letters, digits, quotes or underscores.  Underscore by itself is a reserved identifier and in patterns can act as a wildcard. Identifiers are also case sensitive and keywords such as if, infix, else etc cannot be used as identifiers.
+Identifiers in Haskell start by a letter that can be followed by any combination of zero or more letters, digits, quotes or underscores. Underscore by itself is a reserved identifier and in patterns can act as a wildcard. Identifiers are also case sensitive and keywords such as if, infix, else etc cannot be used as identifiers.
 
 *** Purpose
 
-Identifiers are used to name program entities in Haskell programs. These entities contain variables, functions and data types. Every used identifier must obey the same strict name restrictions and they would better follow some naming conventions that will be described later.  Worth mentioning that Haskell is a statically typed language which means that the type of an identifier is determined at compile time.
+Identifiers are used to name program entities in Haskell programs. These entities contain variables, functions and data types. Every used identifier must obey the same strict name restrictions and they would better follow some naming conventions that will be described later. Worth mentioning that Haskell is a statically typed language which means that the type of an identifier is determined at compile time.
 
 *** Scope
 
@@ -498,7 +499,7 @@ The scope of an identifier indicates the part of the program that can access it.
 
 - Local scope: The identifiers that are declared in a block of code can only be accessed within this block. Every use of them outside the specific block is invalid.
 
-- Parameter scope: The identifiers that are declared as parameters of a function can only be accessed whithin this specific function.
+- Parameter scope: The identifiers that are declared as parameters of a function can only be accessed within this specific function.
 
 *** Naming conventions
 
@@ -535,7 +536,7 @@ data family ANOTHERLIST l
 
 *** =data instance=
 
-This keyword relates to paragraph  [[*=data family=][=data family=]]. Specifically, they enable the declaration of types. So this keyword offers a guide for the execution of the above types.
+This keyword relates to paragraph [[*=data family=][=data family=]]. Specifically, they enable the declaration of types. So this keyword offers a guide for the execution of the above types.
 
 *** =default=
 
@@ -896,11 +897,11 @@ It is used as a way to express calculations in a way that uses arrows.
 
 *** =!=
 
-Algebraic datatypes is a very famous concept in Haskell, and it's declaration depends from constructors. When a new value is constructed with the use of a constructor, then the values that are going to be used in order to construct the final value are created as a result of the evaluation of the arguments
+Algebraic datatypes in Haskell are defined by constructors, which take one or more arguments. When a new value is created using a constructor, the corresponding values that will be merged to create the final value are generated by evaluating the arguments.
 
-Haskell follows lazy evaluation by default. This approach can be inefficient at times, especially when the arguments are either /pricey/ to calculate or not utilized at all.
+Haskell follows lazy evaluation by default, implying that the arguments supplied to a data constructor are not computed until they are required. This approach can be inefficient at times, especially when the arguments are either /pricey/ to calculate or not utilized at all.
 
-Haskell handles this , by giving the permission for the definition of strictness for the arguments that were offered to a constructor . In these cases with the use of a strictness flag represented by the symbol =!=, which is included in the algebraic datatype declaration They are used in order to specify the arguments that must be calculated immediately upon constructor implementation [cite:@marlowHaskell2010Language2010;@haskellwikiHaskellHaskellWiki2023].
+Haskell handles this by giving the permission for the definition of strictness for the arguments that were offered to a constructor. In these cases with the use of a strictness flag represented by the symbol =!=, which is included in the algebraic datatype declaration. They are used in order to specify the arguments that must be calculated immediately upon constructor implementation [cite:@marlowHaskell2010Language2010;@haskellwikiHaskellHaskellWiki2023].
 
 If the goal is the definition of a binary tree data type in Haskell, we can depict a binary tree as a node containing a value and two children, where each child can either be another node or an empty leaf. We can establish this data type using two constructors; one for the internal nodes and another for the leaves (listing [[code:binarytree-def]]).
 
@@ -913,7 +914,7 @@ data BinaryTree a = Node a !(BinaryTree a) !(BinaryTree a)
 
 The =BinaryTree= data type, consisting of two constructors: =Node= and =Leaf=. The =Node= constructor receives three arguments - a value of type "a", and two =BinaryTree= "a" values that represent the node's left and right children. The presence of an exclamation point before each child argument specifies that the children must be strictly evaluated. This denotes that their values will be calculated before the =Node= constructor is utilized, ensuring that the entire =BinaryTree= value is wholly computed during its construction.
 
-Also, the exclamation point is further utilized denoting rigor within patterns (see listing [[code:rigor]]). The function uses a bang pattern. Τhis happens in order to denote that its arguments =x= and =y= must be calculated strictly prior to the application of the function. This ensures that any possible delay in evaluating the arguments is eliminated, which can improve performance in certain scenarios.
+Also, the exclamation point is further utilized denoting rigor within patterns (see listing [[code:rigor]]). The function uses a bang pattern. This happens in order to denote that its arguments =x= and =y= must be calculated strictly prior to the application of the function. This ensures that any possible delay in evaluating the arguments is eliminated, which can improve performance in certain scenarios.
 
 #+caption: Pattern matching
 #+name: code:rigor
@@ -986,7 +987,7 @@ Some of the most used data types are the following:
 
 - =error=: stops running program due to error
 
-- =errorWithoutStackTrace=: stops running program whiout a stack trace
+- =errorWithoutStackTrace=: stops running program without a stack trace
 
 - =undefined=: explicit type of error
 
@@ -1227,7 +1228,7 @@ The visited pieces of data are then copied in parallel to a newly allocated heap
 
 Also, if a piece of data is evaluated and its value is used, it is then considered garbage and collected by the GC [cite:@yangHowGrinchStole].
 
-The downsides of this copying property of the GC is that the memory needed is double the one of the initial heap. That is, the old heap  can't be freed before all of its live data are copied in the new heap.
+The downsides of this copying property of the GC is that the memory needed is double the one of the initial heap. That is, the old heap can't be freed before all of its live data are copied in the new heap.
 
 This problem is solved by the use of a mark-compact algorithm, that reduces memory needs by rearranging the live data in the same heap [cite:@channableLessonsManagingHaskell]. It is used when there are a lot of live data in the old heap.
 
@@ -1285,7 +1286,7 @@ In Haskell there are 6 kinds of names that can be grouped in broader categories 
 
 Haskell has just 2 naming constraints: First, names for variables and type variables are the only names that start with underscore or a lowercase letter. The names for the other categories are not allowed to start with these characters. Second, a class and a type constructor cannot use the same identifier as a name in the same scope [cite:@marlowHaskell2010Language2010].
 
-** Parallelism and Concurency
+** Parallelism and Concurrency
 
 *Parallelism* and *Concurrency* are two different concepts in Haskell that enable the execution of tasks concurrently or in parallel, allowing for increased performance and more efficient utilization of hardware resources. Haskell provides exceptional support for both of them.
 
@@ -1431,7 +1432,7 @@ In order to declare an A-B instance that A is an instance of the class B then a 
 
    * The restrictions that superclass context =con 0= of a class declaration provides should not be violated.
 
-   *  In order to get the class method declarations presented the correct way, then the restrictions on the type variables must not be violated as well.
+   * In order to get the class method declarations presented the correct way, then the restrictions on the type variables must not be violated as well.
 
 #+attr_latex: :placement [H]
 #+begin_src haskell
@@ -1486,7 +1487,7 @@ instance MyClass Typeb where
 Func x = 2  
 #+end_src
 
-The use of =Func= with an ambiguous type like this here: src_haskell[:exports code]{let x = Func undefined in ...} will have as a result a type error, because Haskell doesn’t know what instance to use, =Typea= or =Typeb= for Func based on the type of undefined.
+The use of =Func= with an ambiguous type like this here: src_haskell[:exports code]{let x = Func undefined in ...} will have as a result a type error, because Haskell doesn't know what instance to use, =Typea= or =Typeb= for Func based on the type of undefined.
 
 We have an ambiguous type when a type of an expression contains a type variable that appears in the
 context but it isn't in the result type. For example, suppose we have a function =Func= with the following type signature:
@@ -1518,7 +1519,7 @@ function =asTypeOf= can be helpful.
 
 To address the most frequent ambiguities arising from the =Num= class in Haskell, the language gives an alternative method known as /default declaration/. The form of it is \(\text{type}_{\text{first}}, \dots, \text{type}_{\text{last}} \text{last} \geq 0\). An ambiguous type is /defaultable/ if the following are valid (supposing there’s an ambiguous type variable =x=):
 
-1. Suppossing we have the form =Class x= where =Class= is a class. If =x= occurs only in those kind of type constraints then it is defaultable.
+1. Supposing we have the form =Class x= where =Class= is a class. If =x= occurs only in those kind of type constraints then it is defaultable.
 2. If there is one class among the constraints that is a subclass of or equivalent to the =Num= class, then it is considered as a "numeric class" (the =Num= class is the most common numeric class in Haskell, and it defines basic numeric operations such as addition, subtraction, multiplication, and negation).
 3. The classes in which the type variable =x= appears should be either in the Prelude or in a library that's standard declared.
 
@@ -1632,7 +1633,7 @@ The factorial of 5 is 120
 
 ** Lambda functions
 
-Real use of lamda functions, acting on lists.
+Real use of lambda functions, acting on lists.
 
 #+name: code:sum-prod
 #+caption: Sum and product of an integer list
