@@ -112,7 +112,7 @@ It is known that lambda calculus was the basis that a lot of functional programm
 
 Also lambda calculus characterizes a function as a statement that accepts an input and generates an output. Τheir definition is based on lambda abstractions. Lambda abstractions are nameless functions that connect a variable to a calculation. Also they are employed to represent functions. 
 
-Many languages such as Haskell were directly influenced by lambda calculus. The former offers tangible realizations of the concepts introduced by the latter. For instance, using lambda expressions you can create functions and you can combine functions through higher-order functions.
+Many languages such as Haskell were influenced by the concept of lambda calculus. The former offers tangible realizations of the concepts introduced by the latter. For instance, using lambda expressions you can create functions and you can combine functions through higher-order functions.
 
 **** The /lazy/ craze
 
