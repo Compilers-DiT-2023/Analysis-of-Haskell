@@ -193,7 +193,7 @@ Also of note is Haskell's subreddit[fn:1], which according to https://subreddits
 #+attr_org: :width 300px
 [[file:img/2023-05-18_17-15-08_screenshot.png]]
 
-** Use cases
+** Haskell's use cases
 
 *** Spam Filtering at Facebook
 
@@ -238,7 +238,25 @@ Haskell plays a key role in the development of Cardano, powering various aspects
 
 Cardano benefits from the wide range of Haskell libraries and tools that are open-source. These libraries provide support for cryptography, networking, parsing, and other essential functionalities. The use of Haskell in Cardano reflects the language's suitability for building secure, high-assurance-availability systems.
 
-** Tools and frameworks written in Haskell
+*** Hasura
+
+Hasura is an open-source, real-time GraphQL engine that allows developers to quickly and easily build scalable, performant APIs for their applications [cite:@hasuraInstantGraphQLAPIs]. Developers can easily connect their databases to GraphQL, allowing them to access their data through a single API. Of course, it supports a variety of databases, including PostgreSQL, MySQL, Microsoft SQL Server, and Oracle. It provides a powerful set of features that make it easy to manage complex database schemas, including automatic schema stitching, real-time data synchronization, and granular access control.
+
+One of the key benefits of using Hasura is its ability to generate a complete GraphQL API from an existing *database schema*. This means that developers can get up and running quickly without having to write any code, and they can easily update their APIs as their data schemas change over time. A rich set of tools for monitoring and debugging GraphQL APIs are provided, including query performance analysis and real-time tracing. It is highly customizable and extensible, with a large ecosystem of plugins and integrations that make it easy to integrate with other tools and services.
+
+It has quickly become a popular choice for developers looking to leverage the power of GraphQL.
+
+Haskell is a key component of Hasura's architecture. Hasura is built using Haskell, a language known for its strong type system, which helps catch errors at compile-time, and its support for lazy evaluation, which allows for efficient handling of large datasets. In general, Haskell is well-suited for building high-performance, scalable systems. For example, Hasura uses the Postgres database library for Haskell to provide seamless integration with a variety of databases.
+
+*** Hledger
+
+Hledger is a command-line tool for double-entry accounting, written in Haskell. It is part of the larger Plain Text Accounting paradigm[fn:2]. It is cross platform. It can import from and export to various data formats such as CSV or TSV. Also, it has multiple choices for a User Interface: It can be used from the command-line, a web browser, on mobile, and has various editor/IDE plugins [cite:@michaelHledger2023].
+
+*** Pandoc
+
+Pandoc is a Haskell library used for markup conversion. It is a powerful command-line tool that can inter-convert various file formats, e.g. DocX to PDF, \LaTeX{} to Markdown, Jupyter Notebook to HTML etc. An interesting feature is its Pandoc /filters/, which can be written directly in Haskell and provide the ability to modify the intermediate Abstract Syntax Tree (AST) of the conversion [cite:@macfarlanePandoc2023][fn:3].
+
+** Tools and frameworks for developing in Haskell
 
 *** Hackage
 
@@ -287,16 +305,6 @@ In listing [[hunit]], =testAddition= is a test case that asserts the expected va
 
 By leveraging HUnit, Haskell developers can automate the testing process and easily detect bugs and errors in their code. Unit tests help ensure the reliability and correctness of software, providing confidence.
 
-*** Hasura
-
-Hasura is an open-source, real-time GraphQL engine that allows developers to quickly and easily build scalable, performant APIs for their applications [cite:@hasuraInstantGraphQLAPIs]. Developers can easily connect their databases to GraphQL, allowing them to access their data through a single API. Of course, it supports a variety of databases, including PostgreSQL, MySQL, Microsoft SQL Server, and Oracle. It provides a powerful set of features that make it easy to manage complex database schemas, including automatic schema stitching, real-time data synchronization, and granular access control.
-
-One of the key benefits of using Hasura is its ability to generate a complete GraphQL API from an existing *database schema*. This means that developers can get up and running quickly without having to write any code, and they can easily update their APIs as their data schemas change over time. A rich set of tools for monitoring and debugging GraphQL APIs are provided, including query performance analysis and real-time tracing. It is highly customizable and extensible, with a large ecosystem of plugins and integrations that make it easy to integrate with other tools and services.
-
-It has quickly become a popular choice for developers looking to leverage the power of GraphQL.
-
-Haskell is a key component of Hasura's architecture. Hasura is built using Haskell, a language known for its strong type system, which helps catch errors at compile-time, and its support for lazy evaluation, which allows for efficient handling of large datasets. In general, Haskell is well-suited for building high-performance, scalable systems. For example, Hasura uses the Postgres database library for Haskell to provide seamless integration with a variety of databases.
-
 *** QuickCheck
 
 QuickCheck is a library for automated testing of Haskell programs [cite:@claessenQuickCheckAutomaticTesting]. It was developed by Koen Claessen and John Hughes and is based upon the concept of property-based testing. Traditional testing involves writing test cases that check for expected outputs given specific inputs. In contrast, QuickCheck focuses on defining properties that must always hold true for your program, the input. It then generates random inputs and checks that these properties hold true for each one. For example, if you're testing a function that sorts a list of integers, you could define a property like "sorting a list should produce a list in ascending order". QuickCheck will generate random lists of integers and check that this property holds for each one.
@@ -338,14 +346,6 @@ The main focus of Stack's design point is reproducible builds. If you run =stack
 One of the biggest advantages of Stack is that it provides deterministic builds. This means that if you build your project with Stack, you should get the same results every time, regardless of the environment you're building in. This makes it easier to reproduce builds across different machines and ensure that your code is consistent. Stack manages dependencies using snapshots, which are collections of packages that have been tested together and are sure to work together. This means that the dependencies you're using are compatible with each other, reducing the risk of conflicts. It is important to note that Stack has built-in support for caching compiled packages and dependencies. Stack supports multi-package projects. This can be useful if you're working on a large project that is split into multiple packages.
 
 Stack is relatively easy to set up and use. It is easy to get started with a new project using the =stack new <project-name>= command. Finally, Stack integrates well with other Haskell tools such as Haddock and GHCi.
-
-*** Hledger
-
-Hledger is a command-line tool for double-entry accounting, written in Haskell. It is part of the larger Plain Text Accounting paradigm[fn:2]. It is cross platform. It can import from and export to various data formats such as CSV or TSV. Also, it has multiple choices for a User Interface: It can be used from the command-line, a web browser, on mobile, and has various editor/IDE plugins [cite:@michaelHledger2023].
-
-*** Pandoc
-
-Pandoc is a Haskell library used for markup conversion. It is a powerful command-line tool that can inter-convert various file formats, e.g. DocX to PDF, \LaTeX{} to Markdown, Jupyter Notebook to HTML etc. An interesting feature is its Pandoc /filters/, which can be written directly in Haskell and provide the ability to modify the intermediate Abstract Syntax Tree (AST) of the conversion [cite:@macfarlanePandoc2023][fn:3].
 
 * Analyzing Haskell
 
@@ -439,7 +439,7 @@ do
   statementN
 #+end_src
 
-The usage of =do= expressions is a convenient way to compose monadic action in Haskell and gives the user the ability to write imperative like code inside a monad (e.g. I/O monad). Furthermore, =do= expressions make the code more readable and as a result maintainable by making simpler the sequence of actions and also the handling of produced results [cite:@kremerCPSC449Programming2015].
+The usage of =do= expressions is a convenient way to compose monadic action in Haskell and gives the user the ability to write imperative-like code inside a monad (e.g. I/O monad). Furthermore, =do= expressions make the code more readable and as a result maintainable by making the sequence of actions and the handling of produced results simpler [cite:@kremerCPSC449Programming2015].
 
 #+caption: Haskell program to sum 2 numbers using do notation [cite:@wikibooksHaskellWikibooksFree2022 chapter 10.2]
 #+begin_src haskell
@@ -1143,7 +1143,7 @@ filter (\x -> x `mod` 2 == 0) list
 > [2, 4, 6]
 #+end_src
 
-Lambda expressions can also be composed to create more complex functions using the =.= operator. For example, the expression =(\x -> x + 1) .  (\y -> y * 2)= creates a new lambda that first multiplies its argument by 2 and then increments it by 2. This composed lambda function can consequently be applied to any argument.
+Lambda expressions can also be composed to create more complex functions using the =.= operator. For example, the expression =((\x -> x + 2) . (\y -> y * 2))= creates a new lambda that first multiplies its argument by 2 and then increments it by 2. This composed lambda function can consequently be applied to any argument.
 
 #+attr_latex: :placement [H]
 #+begin_src haskell
@@ -1329,13 +1329,14 @@ Haskell is a functional language and as a result it does not provide object orie
 *** Classes
 
 A class can be mapped to an abstract Haskell type. A constructor can be defined as well, as it is supported by Haskell. Lastly, the user can define the needed functions that use that type [cite:@frankObjectorientationHaskellExploring2013].
+
 #+caption: A class definition in C#
 #+name: class-csharp
 #+begin_src csharp
 class C {
     C(int x) { ... };      /*Constructor*/
-    static int s(int x);   /*Constructor*/
-    int m(bool b, int x);  /*Constructor*/
+    static int s(int x);   /*Static method*/
+    int m(bool b, int x);  /*Instance method*/
 }
 #+end_src
 
@@ -1349,11 +1350,11 @@ m    :: (Bool, Int) -> C -> IO Int
 
 *** Objects
 
-The objects of a class can me modeled as containers (data structures) that contain the data of the class. In Haskell the user has to define the data structure in two phases: data declaration and a class declaration for its the methods [cite:@frankObjectorientationHaskellExploring2013].
+The objects of a class can be modeled as containers (data structures) that contain the data of the class. In Haskell the user has to define the data structure in two phases: data declaration and a class declaration for its methods [cite:@frankObjectorientationHaskellExploring2013].
 
 *** Conclusion
 
-To conclude, Haskell does not provide natively Object Oriented functionalities, but for the most of them, there is an implementation in this language.
+To conclude, Haskell does not provide native object-oriented functionalities, but most of them can be implemented in the language.
 
 ** Classes
 

@@ -26,7 +26,7 @@
   - Disruptive
   - Useful for teaching, research, as well for real-world applications
 
-** Where is it used
+** Where it is used
 
 Haskell is used in a plethora of fields and industries to solve a variety of problems. For example:
 - The Cardano blockchain platform, its protocol and its smart contract infrastructure
