@@ -150,7 +150,7 @@ The first meeting was held at Yale during 1988. There, a clear list of Haskell's
 During the meeting, the members of the development team were encouraged to suggest names. The list included names such as "Semla", "Vivaldi", "Mozart", and more. After conversation each member was given the opportunity to mark a name they didn't prefer. Eventually, only one name remained, and it was decided that the language would be named after the mathematician Haskell B. Curry. Specifically the creators decided to keep the name of "Haskell" as the final name [cite:@hudakHistoryHaskellBeing2007].
 
 At first the chosen name was "Curry". But after a while, the committee came to the realization that they would have an overabundance of comical references regarding the name [cite:@hudakHistoryHaskellBeing2007]. Although there were various amusing jokes that could be made such as the spice carry, that is used in cooking, they were genuinely unsettled by the possibility of using Tim Curry as a way to make fun of the language.
-As Jon Fairbairn's abstract machine was referred to as TIM, and Tim Curry was well-known for his role in the /"Rocky Horror Picture Show"/, so they opted to steer clear of this direction. After additional deliberation the following day, they ultimately opted for the moniker "Haskell" for their novel programming language.
+As Jon Fairbairn's abstract machine was referred to as TIM and Tim Curry was well-known for his role in the /"Rocky Horror Picture Show"/, they opted to steer clear of this direction. After additional deliberation the following day, they ultimately opted for the moniker "Haskell" for their novel programming language.
 
 ***** Haskell's goals
 
@@ -981,7 +981,7 @@ Some of the most used data types are the following:
 
 - =getLine=: reading lines
 
-- =getContents=: returning the input , that was provided to a string
+- =getContents=: returning the input, that was provided to a string
 
 *** Error Functions
 
@@ -1364,13 +1364,13 @@ To conclude, Haskell does not provide native object-oriented functionalities, bu
 
 In Haskell a new class can be defined alongside with its operations through the process of class declaration. The syntax src_haskell[:exports code]{class cx=> MyClass tv where dec} is a way to declare a class. =MyClass= is the name of the new class, and =tv= is a type variable that is used only within the class definition. Also The =cx= part of the declaration specifies any superclasses of =MyClass=. Finally, the =dec= part of the declaration specifies the methods and properties that belong to the class [cite:@marlowHaskell2010Language2010 chapter 4.3].
 
-Specifically from the class declarations we have the following: A class declaration has as a result the production of class methods variables_i. The class methods defined within the class declaration are not limited to the class declaration itself, but can be accessed and used outside of it. Every class method will have this kind of type, src_haskell[:exports code]{method :: context => type}.
+Specifically from the class declarations we have the following: A class declaration results in the creation of class methods, represented b variables_i. The class methods defined within the class declaration are not limited to the class declaration itself, but can be accessed and used outside of it. Every class method will have this kind of type, src_haskell[:exports code]{method :: context => type}.
 
-In Haskell, it is known that types like variables, functions, data types etc. have the same namespace. This basically means that two different top-level names cant have the same name because of the conflicts that may occur.
+In Haskell, it is known that types like variables, functions, data types etc. have the same namespace. This basically means that two different top-level names can't have the same name because of the conflicts that may occur.
 
-The same rule implies also between classes and their bindings. A compilation error will happen when there are two or more names with the same identifier in the same namespace. So the following is the signature form of a top level class method: =fn ::= \(\forall x, y. (Cx, cyz) \rightarrow r\).
+The same rule also applies for classes and their bindings. A compilation error will happen when there are two or more names with the same identifier in the same namespace. So the following is the signature form of a top level class method: =fn ::= \(\forall x, y. (Cx, cyz) \rightarrow r\).
 
-Type classes can be used to abstract over container types, and how class methods can have polymorphic type signatures that may involve additional type variables and constraints beyond the main type parameter of the class (listing [[type-sig]]).
+Type classes provide a way to abstract over container types, allowing class methods to have polymorphic type signatures that can involve additional type variables and constraints beyond the primary type parameter of the class (listing [[type-sig]]).
 
 #+name: type-sig
 #+caption: Polymorphic type signatures 
@@ -1380,12 +1380,12 @@ remove :: a -> ca -> c a
 size :: c a -> Int
 #+end_src
 
-Also, fixity declarations are used to specify the precedence and associativity of operators [cite:@marlowHaskell2010Language2010]. It is possible that the =dec= declaration from above has for class methods fixity declarations, allowing to specify the precedence and associativity of those methods.
+Also, fixity declarations are used to specify the precedence and associativity of operators [cite:@marlowHaskell2010Language2010]. It is possible that the =dec= declaration from above has fixity declarations for class methods, allowing to specify the precedence and associativity of those methods.
 
 Finally, in Haskell a default class method is a method that provides a default implementation. It is offered for a class method in case it is not defined explicitly in an instance declaration. In Haskell, a class declaration can have a =where= keyword, which contains the method signatures for the class methods. A class declaration may also not have this =where= keyword. The second case is used in order to merge many classes to one bigger class that inherits the methods of the smaller ones (listing [[code:small-classes]]).
 
 #+name: code:small-classes
-#+caption[Class inheritance]: Class inheritance.In this example, the =OrderedNum= class combines the =Ord= and =Num= classes and defines a new method =absSquared= that is specific to =OrderedNum= instances.
+#+caption[Class inheritance]: Class inheritance. In this example, the =OrderedNum= class combines the =Ord= and =Num= classes and defines a new method =absSquared= that is specific to =OrderedNum= instances.
 #+begin_src haskell
 class (Ord a, Num a) => OrderedNum a where
 absSquared :: a -> a
@@ -1417,7 +1417,7 @@ instance Aclass [[typ]] where ...
 
 From the above examples tuple types which their elements have the same types are not allowed to be used by an instance declaration. Also it is not allowed to have the first element as a specific type and the second element as a type variable. Finally an instance cannot use a list of lists of type variables.
 
-A class declaration provides type signatures and fixity declarations so they are not allowed in an instance declaration. The method declarations within the instance must be in some kind of forms. These forms must a form of a variable or function definition.
+A class declaration provides type signatures and fixity declarations so they are not allowed in an instance declaration. The method declarations within the instance must be in some kind of forms. These forms must be in the form of a variable or function definition.
 
 When a class method is not explicitly bound in an instance declaration, Haskell looks for a default
 class method. If a default is found, it is used in place of the missing binding =else=, Haskell assigns the
@@ -1431,7 +1431,7 @@ In order to declare an A-B instance that A is an instance of the class B then a 
 
 3. Hypothetically there’s an instance context =con 0=, which restrictions are satisfied by the \(b_{}k\) of the instance type \(A(b_1, \dots, b_{}k)\). Then the following rules must be satisfied as well:
 
-   * The restrictions that superclass context =con 0= of a class declaration provides should not be violated.
+   * The restrictions provided by the superclass context =con0= of a class declaration should not be violated.
 
    * In order to get the class method declarations presented the correct way, then the restrictions on the type variables must not be violated as well.
 
@@ -1442,7 +1442,7 @@ instance (Eq b, Show b) => Animal [b] where ...
 instance Num b => Mammal [b] where ...
 #+end_src
 
-In the above example the =Mammal= is a subclass of =Animal= so the second declaration is acceptable if =[b]= is an instance of =Animal=. =Eq= and =S= are supercalsses of =Num= so the =[b]= is an instance of =Animal= from the first declaration.
+In the above example the =Mammal= is a subclass of =Animal= so the second declaration is acceptable if =[b]= is an instance of =Animal=. =Eq= and =S= are superclasses of =Num= so the =[b]= is an instance of =Animal= from the first declaration.
 
 On the other hand, if there are two instance declarations
 
@@ -1462,7 +1462,7 @@ There are many benefits that come from a derived instance. One of them is a simp
 
 Only for a specific set of classes can derived instances be permitted (=Eq=, =Ord=, =Enum=, =Bounded= etc.). The standard libraries’ defined classes can be eligible for derivation as well.
 
-If a class name is included in a deriving form and the generation of an instance declaration cannot happen, then there’s an error [cite:@marlowHaskell2010Language2010]. Additionally, if a class is both distinctly declared and derived, this will also result in an error.
+If a class name is included in a deriving form and the generation of an instance declaration cannot happen, then there’s an error [cite:@marlowHaskell2010Language2010]. Additionally, if a class is both explicitly declared and derived, this will also result in an error.
 
 *** Defaults, ambiguous types
 
@@ -1513,7 +1513,8 @@ In order to resolve such a problem we use an expression type like this:
 #+begin_src haskell
 let x = Func 5 6 in show (x :: Int)
 #+end_src
-the type show is unambiguous here.
+
+the type of =show= is unambiguous here.
 
 In order to ensure that an ambiguous expression has identical type with a variable, the use of the
 function =asTypeOf= can be helpful.
@@ -1522,11 +1523,11 @@ To address the most frequent ambiguities arising from the =Num= class in Haskell
 
 1. Supposing we have the form =Class x= where =Class= is a class. If =x= occurs only in those kind of type constraints then it is defaultable.
 2. If there is one class among the constraints that is a subclass of or equivalent to the =Num= class, then it is considered as a "numeric class" (the =Num= class is the most common numeric class in Haskell, and it defines basic numeric operations such as addition, subtraction, multiplication, and negation).
-3. The classes in which the type variable =x= appears should be either in the Prelude or in a library that's standard declared.
+3. The classes in which the type variable =x= appears should be either in the Prelude or in a standard library.
 
 A defaultable variable can be substituted by the type that is mentioned as first (noting that it is in the default list) that satisfies all of its classes.
 
-It is also worth noting that each module can be used one declaration that is single. Also its scope is bounded to that module. The cases that default types are assumed (specifically =Integer=, =Double=) are the cases where a declaration, which is default, is not explicitly given in.
+It is also worth noting that each module can have a single default declaration. Also its scope is bounded to that module. The cases that default types are assumed (specifically =Integer=, =Double=) are the cases where a default declaration is not explicitly provided.
 
 ** (Trans)portability
 
@@ -1758,7 +1759,7 @@ ghci>
 
 As you can see, even though we overwritten the value x, the =addx= lambda seems to hold the previous value of =x=. Even reassignments are a complex topic in Haskell.
 
-Here is how someone would define the factorial function as a lamda using =ghci=:
+Here is how someone would define the factorial function as a lambda using =ghci=:
 
 #+attr_latex: :placement [H]
 #+begin_src haskell
