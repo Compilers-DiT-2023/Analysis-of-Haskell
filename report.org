@@ -80,29 +80,29 @@ That's not to say functional programming was new. In fact, it had been around fo
 
 + 1950's
 
-  John McCarthy created Lisp [cite:@mccarthyRecursiveFunctionsSymbolic1960], which was the pioneering high-level functional programming language at the time, during his time at the Massachusetts Institute of Technology in the 1950s. The definition of Lisp functions involved the use of Alonzo Church's lambda notation (see [[*Functional programming and lambda calculus]]), which was expanded to enable the creation of recursive functions. Lisp was the first functional programming language to present several new paradigmatic features. Lisp merged them, and as a result enabled the support of multiple programming styles. Subsequent dialects of Lisp --- e.g Common Lisp, Racket, Scheme and Clojure [cite:@steeleCOMMONLISPLanguage1984;@felleisenRacketManifesto2015;@abelsonRevisedReportAlgorithmic1998;@hickeyHistoryClojure2020;] --- aimed to streamline and rationalize Lisp by emphasizing a purely functional foundation.
+  John McCarthy created Lisp [cite:@mccarthyRecursiveFunctionsSymbolic1960], which was the pioneering elevated perspective functional programming language at the time, during his time at the Massachusetts Institute of Technology in the 1950s. The definition of Lisp functions involved the use of Alonzo Church's lambda represantation (see [[*Functional programming and lambda calculus]]), which was expanded to enable the creation the creation of functions that were recursive. Lisp was the first functional programming language to present several new exemplary features in the functional programming world. Lisp merged them, and as a result enabled the support of multiple programming styles. Subsequent languages that were inspired by LISP --- e.g Scheme and Clojure [cite:@steeleCOMMONLISPLanguage1984;@felleisenRacketManifesto2015;@abelsonRevisedReportAlgorithmic1998;@hickeyHistoryClojure2020;] --- aimed to streamline and make an easier version of LISP by emphasizing to a purely functional foundation.
 
-  At the same time period another functional programming language was created with the name Information Processing Language (IPL) from Allen Newell, Cliff Shaw and Herbert A. Simon [cite:@newellIntroductionInformationProcessing1960]. IPL was created with the primary purpose of handling lists of symbols, enabling dynamic memory allocation and multitasking. It was the inventor of the concept of list processing.
+  At the same time period another functional programming language was created with the name Information Processing Language (IPL) from Allen Newell, Cliff Shaw and Herbert A. Simon [cite:@newellIntroductionInformationProcessing1960]. IPL was created with the primary purpose of handling lists of symbols, enabling memory allocation (dynamically). It was the inventor of the concept of list processing.
 
 + 1960's
   
-  During the early 1960's, Kenneth E. Iverson was responsible for developing APL [cite:@iversonProgrammingLanguage1962]. APL primarily revolved around multidimensional arrays. By utilizing a wide variety of unique graphic symbols APL enabled the creation of incredibly succinct code. APL and its creation was the inspiration for the development of other languages in later years e.g. the programming language K which was created in the 1990's by Arthur Whitney.
+  During the early 1960's, Kenneth E. Iverson was responsible for evolving APL [cite:@iversonProgrammingLanguage1962]. APL primarily revolved around arrays that are multidimensional. By utilizing a wide variety of distinct symbols that were graphic, APL enabled the creation of incredibly succinct code. APL and its creation was the inspiration for the development of other languages in later years e.g. the programming language K which was created in the 1990's by Arthur Whitney.
 
   During the mid-1960's, Peter Landin played a key role in the development of functional programming languages. He was responsible for the creation of the SECD machine [cite:@landinMechanicalEvaluationExpressions1964]. In addition to creating the SECD machine, Peter Landin recommended the ISWIM programming language [cite:@landinNext700Programming1966].
 
 + 1970's
   
-  During the 1970's, several functional programming languages were developed in Scotland. Robin Milner was the creator of ML. David Turner was responsible for the creation of SASL. Also at that period in Edinburgh, Burstall and Darlington created the NPL which was a functional programming language that utilized Kleene Recursion Equations [cite:@darlingtonProgramTransformationSynthesis1977]. Later, the previous two developers with Sannella implemented polymorphic type checking from ML into Hope, a language derived from NPL. As time passed, ML evolved into some new idioms, with OCaml being one of the most popular.
+  During the 1970's, several functional programming languages were developed in Scotland. Robin Milner was the creator of ML. David Turner was responsible for the creation of SASL. Also at that period in Edinburgh, Burstall and Darlington created the NPL which was a functional programming language that utilized Kleene Recursion Equations [cite:@darlingtonProgramTransformationSynthesis1977]. Later, the previous two developers with Sannella implemented type checking from ML into Hope, a language obtained from NPL. As time passed, ML evolved into some new idioms, with OCaml being one of the most popular.
 
-  Another functional programming language that was developed at that time was Scheme by Gerald Jay Sussman and Guy L. Steele [cite:@abelsonRevisedReportAlgorithmic1998]. Scheme was the initial variation of Lisp that mandated tail-call optimization and implemented lexical scoping.
+  Another functional programming language that was developed at that time was Scheme by Gerald Jay Sussman and Guy L. Steele [cite:@abelsonRevisedReportAlgorithmic1998]. Scheme was the initial variation of Lisp that mandated optimization in functions calls , which were recursive and happened in the rear position , also implemented scoping which was lexical.
   
-  It was at this time that John Backus's lecture was published [cite:@backusCanProgrammingBe1978]. He described functional programs as being constructed hierarchically using "combining forms" which enable an "algebra of programs". This hierarchical construction stick to the principle of compositionality, which is a fundamental aspect of modern functional programming.
+  It was at this time that John Backus's lecture was published [cite:@backusCanProgrammingBe1978]. He described functional programs as being constructed hierarchically using "combining forms". This type of construction is inspired from the principle of compositionality.
 
 + 1980's
   
-  During the 1980's, the intuitionistic type theory, developed by Per Martin-Löf, established a connection between functional programs and constructive proofs that were expressed through dependent types.That opened up new avenues for collaborative theorem proving and had a significant impact on the evolution of later functional programming languages.
+  During the 1980's, the intuitionistic type theory, developed by Per Martin-Löf, established a connection between functional programs and constructive proofs (these were established through dependent types).That opened up new avenues for collaborative theorem proving and had a significant impact on the evolution of later functional programming languages.
 
-  David Turner created the lazy functional language Miranda [cite:@turnerMirandaNonstrictFunctional1985] in the mid 1980's. This language in particular had a significant impact on the development of Haskell (see [[*Haskell and Miranda]]).
+  David Turner created the lazy functional language Miranda [cite:@turnerMirandaNonstrictFunctional1985] in the mid 80's. This language in particular had a significant impact on the development of Haskell, which emerged in 1987 continued through the years representing the functional programming community (see [[*Haskell and Miranda]]).
 
 **** Functional programming and lambda calculus
 
@@ -466,7 +466,7 @@ factorial n = n * factorial (n - 1)
 
 ** Laziness
 
-Lazy evaluation is an evaluation approach that delays the computation of an expression until its value is necessary, thus preventing redundant calculations. This feature attracted a lot of experts and led them to contribute to the design offers the language when Haskell was created.
+Lazy evaluation is an evaluation approach that postpones the computation of a statement until the value of it is wanted , so this has as a result the following : the evaluation doesn't spend more time for excessive , and useless calculations. This feature definitely caught the attention of many experts . Many scientists , gathered in order to contribute for the design of the language.
 
 In Haskell, expressions in this context are not assessed when connected to variables. Instead, their evaluation is postponed until the results are necessary for other calculations. As a result, arguments are not assessed before being passed to a function. Their evaluation only takes place when their values are actually utilized. This method is known as /call by name/ [cite:@haskellwikiHaskellHaskellWiki2023].
 
@@ -474,7 +474,7 @@ Although lazy evaluation offers numerous benefits, its primary disadvantage lies
 
 *** Lazy evaluation and semantics
 
-Operational semantics in Haskell define how a program is examined, and lazy evaluation is a key aspect of it. Conversely, denotational semantics includes non-strict semantics, which describe what a program calculates. The non-strict semantics approach enables the handling of values that are not defined, and also permits the processing of unending data.
+Operational semantics in Haskell define how a program is examined, and lazy evaluation is a key aspect of it. Conversely, denotational semantics includes semantics that aren't strict, which describe what a program calculates. The non-strict semantics approach enables the handling of values that are not defined, and also permits the processing of unending data.
 
 ** Identifiers
 
