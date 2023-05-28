@@ -466,7 +466,7 @@ factorial n = n * factorial (n - 1)
 
 ** Laziness
 
-Lazy evaluation is an evaluation approach that delays the computation of an expression until its value is necessary, thus preventing redundant calculations. This feature attracted a lot of experts and led them to contribute to the design offers the language when Haskell was created.
+Lazy evaluation is an evaluation approach that postpones the computation of a statement until the value of it is wanted , so this has as a result the following : the evaluation doesn't spend more time for excessive , and useless calculations. This feature definitely caught the attention of many experts . Many scientists , gathered in order to contribute for the design of the language.
 
 In Haskell, expressions in this context are not assessed when connected to variables. Instead, their evaluation is postponed until the results are necessary for other calculations. As a result, arguments are not assessed before being passed to a function. Their evaluation only takes place when their values are actually utilized. This method is known as /call by name/ [cite:@haskellwikiHaskellHaskellWiki2023].
 
@@ -474,7 +474,7 @@ Although lazy evaluation offers numerous benefits, its primary disadvantage lies
 
 *** Lazy evaluation and semantics
 
-Operational semantics in Haskell define how a program is examined, and lazy evaluation is a key aspect of it. Conversely, denotational semantics includes non-strict semantics, which describe what a program calculates. The non-strict semantics approach enables the handling of values that are not defined, and also permits the processing of unending data.
+Operational semantics in Haskell define how a program is examined, and lazy evaluation is a key aspect of it. Conversely, denotational semantics includes semantics that aren't strict, which describe what a program calculates. The non-strict semantics approach enables the handling of values that are not defined, and also permits the processing of unending data.
 
 ** Identifiers
 
